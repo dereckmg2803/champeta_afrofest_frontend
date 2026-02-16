@@ -1,0 +1,127 @@
+/* App.css - Champeta AfroFest */
+
+/* Smooth scrolling for the entire app */
+.App {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Section transitions */
+section {
+  position: relative;
+}
+
+/* Ensure proper stacking context */
+header {
+  z-index: 100;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  position: relative;
+  z-index: 10;
+}
+
+/* Mobile menu animations */
+@media (max-width: 768px) {
+  .mobile-nav-enter {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  .mobile-nav-exit {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary);
+}
+
+/* Button active states */
+button:active {
+  transform: translateY(2px);
+}
+
+/* Card hover effects */
+.pico-shadow:hover {
+  transform: translate(-2px, -2px);
+}
+
+/* Image loading placeholder */
+img {
+  background-color: var(--muted);
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  .container-festival {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .noise-overlay,
+  header,
+  footer {
+    display: none;
+  }
+  
+  section {
+    break-inside: avoid;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pico-shadow {
+    box-shadow: 4px 4px 0px 0px currentColor;
+  }
+  
+  .pico-shadow-sm {
+    box-shadow: 2px 2px 0px 0px currentColor;
+  }
+}
