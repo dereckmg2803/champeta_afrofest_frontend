@@ -19,7 +19,7 @@ export const Header = () => {
     { href: '/festival', label: 'Festival', isAnchor: false },
     { href: '/champeta', label: 'Champeta', isAnchor: false },
     { href: '/experiencias', label: 'Experiencias', isAnchor: false },
-    { href: '#entradas', label: 'Entradas', isAnchor: true },
+    { href: '/comunidad', label: 'Comunidad', isAnchor: false },
   ];
 
   const scrollToSection = (e, href) => {
@@ -117,7 +117,17 @@ export const Header = () => {
             data-testid="mobile-menu-toggle"
             className="md:hidden p-2 rounded-lg hover:bg-[var(--primary)]/20 transition-colors"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X
+                className={`w-6 h-6 transition-colors ${isScrolled ? "text-black" : "text-white"
+                  }`}
+              />
+            ) : (
+              <Menu
+                className={`w-6 h-6 transition-colors ${isScrolled ? "text-black" : "text-white"
+                  }`}
+              />
+            )}
           </button>
         </nav>
       </div>

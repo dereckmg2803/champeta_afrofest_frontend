@@ -10,6 +10,7 @@ import { Tickets } from "./components/Tickets";
 import { Community } from "./components/Community";
 import { Allies } from "./components/Allies";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { SubpageLayout } from "./components/SubpageLayout";
 import FestivalPage from "./pages/FestivalPage";
 import ChampetaPage from "./pages/ChampetaPage";
@@ -63,7 +64,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
+
           {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
 

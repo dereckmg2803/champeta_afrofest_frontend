@@ -30,8 +30,8 @@ export const AboutFestival = () => {
   ];
 
   return (
-    <section 
-      id="sobre" 
+    <section
+      id="sobre"
       data-testid="about-section"
       className="py-20 md:py-32 relative overflow-hidden"
       style={{ backgroundColor: 'var(--background)' }}
@@ -58,20 +58,17 @@ export const AboutFestival = () => {
             </span>
             <div className="w-8 h-1 bg-[var(--cartagena-red)]" />
           </div>
-          <h2 
+          <h2
             data-testid="about-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-6"
           >
-            ¡La Champeta se Vive con <span className="text-[var(--cartagena-red)]">Imperio</span>!
+            ¡La Champeta se <span className="text-[var(--cartagena-red)]">Vive</span>!
           </h2>
-          <p 
+          <p
             data-testid="about-description"
             className="max-w-3xl mx-auto text-base md:text-lg text-[var(--foreground)]/80 leading-relaxed"
           >
-            Champeta AfroFest surge de la comunidad costeña con el propósito de crear un espacio inclusivo 
-            donde tanto colombianos como personas de diversas nacionalidades puedan experimentar la riqueza 
-            de la cultura alrededor de la champeta, la música, la danza, la gastronomía y la diversidad 
-            de tradiciones caribeñas.
+            Champeta AfroFest surge como una iniciativa para celebrar la cultura en las fiestas de la independencia, y ha evolucionado para convertirse en un espacio intercultural donde personas de diversas nacionalidades pueden experimentar la riqueza de la champeta, la música, la danza, la gastronomía y las tradiciones caribeñas.
           </p>
         </div>
 
@@ -84,7 +81,7 @@ export const AboutFestival = () => {
               className="group p-6 md:p-8 bg-white border-2 border-[var(--foreground)] rounded-2xl pico-shadow animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div 
+              <div
                 className="w-14 h-14 mb-4 flex items-center justify-center rounded-xl border-2 border-[var(--foreground)] group-hover:scale-110 transition-transform"
                 style={{ backgroundColor: feature.color }}
               >

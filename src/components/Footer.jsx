@@ -25,7 +25,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer 
+    <footer
       data-testid="footer"
       className="py-12 md:py-16 relative overflow-hidden section-dark"
     >
@@ -36,10 +36,10 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_fest-cartagena/artifacts/iboapxvi_Picture2.png"
+            <img
+              src="/logo.png"
               alt="Champeta AfroFest"
-              className="h-14 w-auto object-contain"
+              className="h-14 w-auto object-contain bg-transparent"
             />
           </div>
 

@@ -8,14 +8,14 @@ export const Allies = () => {
   ];
 
   return (
-    <section 
-      id="aliados" 
+    <section
+      id="aliados"
       data-testid="allies-section"
       className="py-20 md:py-32 relative overflow-hidden"
       style={{ backgroundColor: 'var(--background)' }}
     >
       {/* Background crowd silhouette */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-full h-48 opacity-10"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1690312022107-4fb10402aee6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxhZnJvLWNvbG9tYmlhbiUyMGNoYW1wZXRhJTIwZGFuY2VycyUyMGVuZXJnZXRpYyUyMGZlc3RpdmFsJTIwY3Jvd2R8ZW58MHx8fHwxNzcxMjY2NzExfDA&ixlib=rb-4.1.0&q=85')`,
@@ -27,7 +27,7 @@ export const Allies = () => {
       <div className="container-festival relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 
+          <h2
             data-testid="allies-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
@@ -40,10 +40,10 @@ export const Allies = () => {
 
         {/* Logo call to action */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <img 
-            src="https://customer-assets.emergentagent.com/job_fest-cartagena/artifacts/iboapxvi_Picture2.png"
+          <img
+            src="/logo.png"
             alt="Champeta AfroFest"
-            className="h-16 w-auto object-contain"
+            className="h-12 md:h-14 w-auto object-contain bg-transparent"
           />
           <span className="text-[var(--foreground)]/50 hidden sm:block">|</span>
           <p className="text-sm md:text-base text-[var(--foreground)] text-center sm:text-left">

@@ -29,24 +29,23 @@ export const SubpageHeader = () => {
   };
 
   return (
-    <header 
+    <header
       data-testid="subpage-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isScrolled ? 'glass border-b-2 border-[var(--foreground)]/10' : 'bg-[var(--dark-section)]'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'glass border-b-2 border-[var(--foreground)]/10' : 'bg-[var(--dark-section)]'
+        }`}
     >
       <div className="container-festival">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link 
+          <Link
             to="/"
             data-testid="subpage-header-logo"
             className="flex items-center gap-2"
           >
-            <img 
-              src="https://customer-assets.emergentagent.com/job_fest-cartagena/artifacts/iboapxvi_Picture2.png"
+            <img
+              src="/logo.png"
               alt="Champeta AfroFest"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-12 md:h-14 w-auto object-contain bg-transparent"
             />
           </Link>
 
@@ -57,16 +56,14 @@ export const SubpageHeader = () => {
                 key={link.href}
                 to={link.href}
                 data-testid={`subpage-nav-${link.label.toLowerCase()}`}
-                className={`text-sm font-bold uppercase tracking-wider transition-colors relative group ${
-                  isActive(link.href) 
-                    ? 'text-[var(--cartagena-yellow)]' 
-                    : isScrolled ? 'text-[var(--foreground)] hover:text-[var(--cartagena-yellow)]' : 'text-white hover:text-[var(--cartagena-yellow)]'
-                }`}
+                className={`text-sm font-bold uppercase tracking-wider transition-colors relative group ${isActive(link.href)
+                  ? 'text-[var(--cartagena-yellow)]'
+                  : isScrolled ? 'text-[var(--foreground)] hover:text-[var(--cartagena-yellow)]' : 'text-white hover:text-[var(--cartagena-yellow)]'
+                  }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[var(--cartagena-yellow)] transition-[width] duration-300 ${
-                  isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[var(--cartagena-yellow)] transition-[width] duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
               </Link>
             ))}
           </div>
@@ -78,9 +75,8 @@ export const SubpageHeader = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="subpage-header-instagram"
-              className={`p-2 rounded-full transition-colors ${
-                isScrolled ? 'hover:bg-[var(--cartagena-yellow)]/20' : 'hover:bg-white/20'
-              }`}
+              className={`p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-[var(--cartagena-yellow)]/20' : 'hover:bg-white/20'
+                }`}
             >
               <Instagram className={`w-5 h-5 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'}`} />
             </a>
@@ -97,12 +93,11 @@ export const SubpageHeader = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="subpage-mobile-menu-toggle"
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'hover:bg-[var(--cartagena-yellow)]/20' : 'hover:bg-white/20'
-            }`}
+            className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'hover:bg-[var(--cartagena-yellow)]/20' : 'hover:bg-white/20'
+              }`}
           >
-            {isMobileMenuOpen 
-              ? <X className={`w-6 h-6 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'}`} /> 
+            {isMobileMenuOpen
+              ? <X className={`w-6 h-6 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'}`} />
               : <Menu className={`w-6 h-6 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'}`} />
             }
           </button>
@@ -112,9 +107,8 @@ export const SubpageHeader = () => {
       {/* Mobile Menu Overlay */}
       <div
         data-testid="subpage-mobile-menu"
-        className={`md:hidden fixed inset-0 top-16 bg-[var(--dark-section)] z-40 transform transition-transform duration-300 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`md:hidden fixed inset-0 top-16 bg-[var(--dark-section)] z-40 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex flex-col p-6 gap-4">
           {mainNavLinks.map((link, index) => (
@@ -123,9 +117,8 @@ export const SubpageHeader = () => {
               to={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               data-testid={`subpage-mobile-nav-${link.label.toLowerCase()}`}
-              className={`text-xl font-['Titan_One'] uppercase transition-colors ${
-                isActive(link.href) ? 'text-[var(--cartagena-yellow)]' : 'text-white hover:text-[var(--cartagena-yellow)]'
-              }`}
+              className={`text-xl font-['Titan_One'] uppercase transition-colors ${isActive(link.href) ? 'text-[var(--cartagena-yellow)]' : 'text-white hover:text-[var(--cartagena-yellow)]'
+                }`}
             >
               {link.label}
             </Link>

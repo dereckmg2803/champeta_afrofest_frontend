@@ -5,27 +5,27 @@ import { VinylDisc, Sparkle, DancingCouple } from '../components/CartagenaIllust
 // Galería de fotos del festival (placeholders - reemplazar con fotos reales)
 const galleryImages = [
   {
-    url: 'https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=600',
+    url: '/im1.jpg',
     caption: 'Baile champeta en vivo'
   },
   {
-    url: 'https://images.unsplash.com/photo-1690312022107-4fb10402aee6?w=600',
+    url: '/im2.jpg',
     caption: 'Comunidad celebrando'
   },
   {
-    url: 'https://images.unsplash.com/photo-1626041293558-21fd007149d6?w=600',
+    url: '/im3.jpg',
     caption: 'Arte callejero cartagenero'
   },
   {
-    url: 'https://images.unsplash.com/photo-1695314286227-fb84c004b74d?w=600',
+    url: '/im4.jpg',
     caption: 'Artistas en escenario'
   },
   {
-    url: 'https://images.unsplash.com/photo-1735885684713-da6317cebe90?w=600',
+    url: '/im5.jpg',
     caption: 'Energía del público'
   },
   {
-    url: 'https://images.unsplash.com/photo-1735885684742-39a7c835eb68?w=600',
+    url: '/im6.jpg',
     caption: 'Momentos únicos'
   }
 ];
@@ -34,7 +34,7 @@ const editions = [
   {
     year: '2025',
     date: '15 de Noviembre',
-    location: 'Cartagena de Indias',
+    location: 'Melbourne, Australia',
     highlights: ['Primera edición histórica', 'Más de 500 asistentes', '8 artistas en vivo', 'Talleres de baile'],
     color: 'var(--cartagena-green)'
   }
@@ -53,19 +53,19 @@ export default function FestivalPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden" style={{ backgroundColor: 'var(--dark-section)' }}>
         <div className="absolute inset-0 opacity-20">
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=1920"
             alt="Festival background"
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         {/* Decorative elements */}
         <div className="absolute top-20 left-10 opacity-50 hidden md:block">
           <VinylDisc size={80} />
         </div>
         <Sparkle size={24} className="absolute top-32 right-20" color="var(--cartagena-yellow)" />
-        
+
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-6 border-2 border-[var(--cartagena-yellow)]">
             Nuestra Historia
@@ -74,8 +74,7 @@ export default function FestivalPage() {
             El <span className="text-[var(--cartagena-yellow)]">Festival</span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-            Champeta AfroFest nace de la comunidad costeña con el propósito de crear un espacio inclusivo 
-            donde colombianos y personas de diversas nacionalidades puedan experimentar la riqueza de nuestra cultura.
+            El evento busca visibilizar, fortalecer y celebrar la champeta como expresión artística y patrimonial del Caribe colombiano y está orientado a la promoción de la diversidad cultural y la inclusión social.
           </p>
         </div>
 
@@ -90,11 +89,11 @@ export default function FestivalPage() {
         <div className="container-festival">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div 
+              <div
                 key={index}
                 className="text-center p-6 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow"
               >
-                <div 
+                <div
                   className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-xl"
                   style={{ backgroundColor: stat.color }}
                 >
@@ -125,25 +124,25 @@ export default function FestivalPage() {
               </h2>
               <div className="space-y-4 text-[var(--foreground)]/80">
                 <p>
-                  Champeta AfroFest surge como una idea de la comunidad costeña residente en la ciudad, 
-                  con el propósito de crear un espacio inclusivo donde tanto colombianos como personas 
-                  de diversas nacionalidades pudieran experimentar la riqueza de la cultura alrededor 
+                  Champeta AfroFest surge como una idea de la comunidad costeña residente en la ciudad,
+                  con el propósito de crear un espacio inclusivo donde tanto colombianos como personas
+                  de diversas nacionalidades pudieran experimentar la riqueza de la cultura alrededor
                   de la champeta.
                 </p>
                 <p>
-                  La música, la danza, la gastronomía y la diversidad de tradiciones caribeñas se 
-                  unen en un solo lugar para celebrar nuestra herencia africana y el espíritu festivo 
+                  La música, la danza, la gastronomía y la diversidad de tradiciones caribeñas se
+                  unen en un solo lugar para celebrar nuestra herencia africana y el espíritu festivo
                   de Cartagena de Indias.
                 </p>
                 <p>
-                  El 15 de noviembre de 2025 celebramos nuestra primera edición, un hito histórico 
+                  El 15 de noviembre de 2025 celebramos nuestra primera edición, un hito histórico
                   que reunió a más de 500 personas en una noche inolvidable de ritmo y cultura.
                 </p>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden border-4 border-[var(--foreground)] pico-shadow">
-                <img 
+                <img
                   src="https://images.unsplash.com/photo-1690312022107-4fb10402aee6?w=600"
                   alt="Comunidad Champeta"
                   className="w-full h-full object-cover"
@@ -171,12 +170,12 @@ export default function FestivalPage() {
 
           <div className="max-w-3xl mx-auto">
             {editions.map((edition, index) => (
-              <div 
+              <div
                 key={index}
                 className="relative p-8 rounded-2xl bg-white/10 backdrop-blur-sm border-2 mb-8"
                 style={{ borderColor: edition.color }}
               >
-                <div 
+                <div
                   className="absolute -left-4 top-8 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
                   style={{ backgroundColor: edition.color }}
                 >
@@ -187,7 +186,7 @@ export default function FestivalPage() {
                     <h3 className="font-['Titan_One'] text-2xl text-white">
                       Edición {edition.year}
                     </h3>
-                    <span 
+                    <span
                       className="px-3 py-1 rounded-full text-sm font-bold"
                       style={{ backgroundColor: edition.color, color: 'white' }}
                     >
@@ -213,7 +212,7 @@ export default function FestivalPage() {
                 Edición 2026
               </h3>
               <p className="text-white/60 mb-4">¡Próximamente!</p>
-              <Link 
+              <Link
                 to="/"
                 className="inline-block px-6 py-3 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--cartagena-yellow)] hover:bg-[var(--cartagena-red)]/90 transition-colors"
               >
@@ -241,11 +240,11 @@ export default function FestivalPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {galleryImages.map((image, index) => (
-              <div 
+              <div
                 key={index}
                 className="group relative aspect-square rounded-2xl overflow-hidden border-2 border-[var(--foreground)] cursor-pointer"
               >
-                <img 
+                <img
                   src={image.url}
                   alt={image.caption}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
@@ -270,7 +269,7 @@ export default function FestivalPage() {
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
             Únete a nuestra comunidad y sé el primero en enterarte de la próxima edición
           </p>
-          <Link 
+          <Link
             to="/#comunidad"
             className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
           >

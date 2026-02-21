@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { SubpageHeader } from './SubpageHeader';
-import { SubpageFooter } from './SubpageFooter';
+import { Footer } from './Footer';
 
 export const SubpageLayout = () => {
   return (
@@ -9,7 +9,7 @@ export const SubpageLayout = () => {
       <main className="flex-1 pt-16 md:pt-20">
         <Outlet />
       </main>
-      <SubpageFooter />
+      <Footer />
     </div>
   );
 };

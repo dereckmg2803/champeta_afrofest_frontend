@@ -14,13 +14,14 @@ export const Hero = () => {
     <section
       id="inicio"
       data-testid="hero-section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-end justify-center overflow-hidden pb-32 md:pb-40"
     >
       {/* Background with mural texture */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
-          backgroundImage: `url('/hero.png')`
+          backgroundImage: `url('/hero.jpg')`,
+          backgroundPosition: "center 40%"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--foreground)]/85 via-[var(--foreground)]/70 to-[var(--foreground)]/95" />
@@ -53,8 +54,9 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container-festival text-center px-4">
-        {/* Title with Cartagena flag colors - styled like the logo */}
+
         <div className="mb-6 animate-fade-in-up">
+          {/* Title with Cartagena flag colors - styled like the logo 
           <h1
             data-testid="hero-title"
             className="font-['Titan_One'] text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-none"
@@ -80,22 +82,23 @@ export const Hero = () => {
               AfroFest
             </span>
           </h1>
-          {/* Decorative sparkle like in the logo */}
+          */}
+          {/* Decorative sparkle like in the logo 
           <div className="flex justify-center -mt-2">
             <Sparkle size={28} color="white" />
-          </div>
+          </div>*/}
         </div>
 
-        {/* Tagline */}
+        {/* Tagline 
         <p
           data-testid="hero-tagline"
           className="font-['Space_Grotesk'] text-lg sm:text-xl md:text-2xl text-white/90 mb-4 animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
-          El festival de la champeta más grande del Caribe
-        </p>
+          Desde el Caribe para el mundo
+        </p>*/}
 
-        {/* Date Badge */}
+        {/* Date Badge
         <div
           data-testid="hero-date"
           className="inline-block mb-6 animate-fade-in-up"
@@ -105,8 +108,8 @@ export const Hero = () => {
             Next Version in 2026
           </span>
         </div>
-
-        {/* Location */}
+ */}
+        {/* Location 
         <p
           data-testid="hero-location"
           className="text-white/80 text-base md:text-lg mb-8 animate-fade-in-up flex items-center justify-center gap-2"
@@ -116,7 +119,7 @@ export const Hero = () => {
           Cartagena de Indias, Colombia
           <span className="inline-block w-3 h-3 bg-[var(--cartagena-red)] rounded-full"></span>
         </p>
-
+*/}
         {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
@@ -134,7 +137,7 @@ export const Hero = () => {
             href="#sobre"
             onClick={(e) => scrollToSection(e, '#sobre')}
             data-testid="hero-cta-about"
-            className="px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wider border-2 border-[var(--cartagena-green)] rounded-xl text-lg hover:bg-[var(--cartagena-green)]/20 transition-colors"
+            className="px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--cartagena-green)] rounded-xl text-lg hover:bg-[var(--cartagena-green)] transition-all duration-300"
           >
             Conoce el Festival
           </a>
@@ -142,7 +145,7 @@ export const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 animate-bounce z-20">
+      <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 animate-bounce z-20">
         <a
           href="#sobre"
           onClick={(e) => scrollToSection(e, '#sobre')}
@@ -153,6 +156,6 @@ export const Hero = () => {
           <ChevronDown className="w-6 h-6" />
         </a>
       </div>
-    </section>
+    </section >
   );
 };

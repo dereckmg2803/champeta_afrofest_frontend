@@ -63,13 +63,13 @@ export const Community = () => {
   };
 
   return (
-    <section 
-      id="comunidad" 
+    <section
+      id="comunidad"
       data-testid="community-section"
       className="py-20 md:py-32 relative overflow-hidden section-dark"
     >
       {/* Background world map texture */}
-      <div 
+      <div
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1626041293558-21fd007149d6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHx2aWJyYW50JTIwY2FydGFnZW5hJTIwY29sb21iaWElMjBzdHJlZXQlMjBtdXJhbCUyMGFydCUyMGNvbG9yZnVsfGVufDB8fHx8MTc3MTI2NjcxMHww&ixlib=rb-4.1.0&q=85')`,
@@ -84,7 +84,7 @@ export const Community = () => {
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--cartagena-yellow)]">
             Comunidad & Diáspora
           </span>
-          <h2 
+          <h2
             data-testid="community-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-white mb-4"
           >
@@ -92,30 +92,31 @@ export const Community = () => {
           </h2>
         </div>
 
-        {/* Map Illustration */}
-        <div 
-          data-testid="community-map"
-          className="relative w-full max-w-4xl mx-auto aspect-[2/1] mb-16 rounded-2xl overflow-hidden border-4 border-[var(--primary)]"
-          style={{
-            background: 'linear-gradient(135deg, #87CEEB 0%, #98D8C8 50%, #90EE90 100%)'
-          }}
-        >
-          {/* Simplified world map SVG */}
-          <svg viewBox="0 0 1000 500" className="w-full h-full absolute inset-0">
-            {/* Americas */}
-            <path d="M150,100 Q200,80 250,120 L280,200 Q270,280 250,350 L200,400 Q150,380 130,320 L100,250 Q90,180 150,100" fill="#2D5016" opacity="0.8"/>
-            <path d="M200,220 Q240,200 280,250 L300,350 Q280,420 230,450 L180,440 Q140,400 150,350 L170,280 Q180,240 200,220" fill="#3D6B22" opacity="0.8"/>
-            
-            {/* Europe/Africa */}
-            <path d="M450,80 Q520,70 560,100 L580,150 Q590,200 570,280 L520,350 Q470,380 430,340 L400,280 Q380,200 400,140 Q420,100 450,80" fill="#2D5016" opacity="0.8"/>
-            <path d="M460,200 Q500,180 540,220 L560,320 Q550,400 500,450 L440,440 Q400,400 410,350 L430,280 Q440,230 460,200" fill="#3D6B22" opacity="0.8"/>
-            
-            {/* Asia/Australia */}
-            <path d="M600,100 Q700,80 800,120 L850,200 Q860,280 820,340 L750,380 Q680,400 620,360 L580,280 Q570,180 600,100" fill="#2D5016" opacity="0.8"/>
-            <path d="M750,350 Q800,340 830,380 L840,420 Q830,460 790,470 L750,460 Q720,440 730,400 Q740,370 750,350" fill="#3D6B22" opacity="0.8"/>
-          </svg>
 
-          {/* Location markers */}
+        <div
+        /* Map Illustration 
+         data-testid="community-map"
+         className="relative w-full max-w-4xl mx-auto aspect-[2/1] mb-16 rounded-2xl overflow-hidden border-4 border-[var(--primary)]"
+         style={{
+           background: 'linear-gradient(135deg, #87CEEB 0%, #98D8C8 50%, #90EE90 100%)'
+         }}*/
+        >
+          {/* Simplified world map SVG 
+          <svg viewBox="0 0 1000 500" className="w-full h-full absolute inset-0">
+
+            <path d="M150,100 Q200,80 250,120 L280,200 Q270,280 250,350 L200,400 Q150,380 130,320 L100,250 Q90,180 150,100" fill="#2D5016" opacity="0.8" />
+            <path d="M200,220 Q240,200 280,250 L300,350 Q280,420 230,450 L180,440 Q140,400 150,350 L170,280 Q180,240 200,220" fill="#3D6B22" opacity="0.8" />
+
+
+            <path d="M450,80 Q520,70 560,100 L580,150 Q590,200 570,280 L520,350 Q470,380 430,340 L400,280 Q380,200 400,140 Q420,100 450,80" fill="#2D5016" opacity="0.8" />
+            <path d="M460,200 Q500,180 540,220 L560,320 Q550,400 500,450 L440,440 Q400,400 410,350 L430,280 Q440,230 460,200" fill="#3D6B22" opacity="0.8" />
+
+
+            <path d="M600,100 Q700,80 800,120 L850,200 Q860,280 820,340 L750,380 Q680,400 620,360 L580,280 Q570,180 600,100" fill="#2D5016" opacity="0.8" />
+            <path d="M750,350 Q800,340 830,380 L840,420 Q830,460 790,470 L750,460 Q720,440 730,400 Q740,370 750,350" fill="#3D6B22" opacity="0.8" />
+          </svg>
+*/}
+          {/* Location markers 
           {locations.map((loc, index) => (
             <div
               key={loc.name}
@@ -123,7 +124,7 @@ export const Community = () => {
               style={{ left: loc.x, top: loc.y }}
             >
               <div className={`flex flex-col items-center ${loc.main ? 'scale-125' : ''}`}>
-                <MapPin 
+                <MapPin
                   className={`w-6 h-6 md:w-8 md:h-8 ${loc.main ? 'text-[var(--accent)]' : 'text-[var(--primary)]'}`}
                   fill={loc.main ? 'var(--accent)' : 'var(--primary)'}
                 />
@@ -131,14 +132,14 @@ export const Community = () => {
                   {loc.name}
                 </span>
               </div>
-              {/* Connection lines to Colombia */}
+              
               {!loc.main && (
                 <svg className="absolute top-0 left-0 w-[300px] h-[200px] -z-10 pointer-events-none" style={{ transform: 'translate(-50%, -50%)' }}>
-                  <line 
-                    x1="150" y1="100" 
-                    x2="50" y2="50" 
-                    stroke="var(--primary)" 
-                    strokeWidth="2" 
+                  <line
+                    x1="150" y1="100"
+                    x2="50" y2="50"
+                    stroke="var(--primary)"
+                    strokeWidth="2"
                     strokeDasharray="5,5"
                     opacity="0.5"
                   />
@@ -146,7 +147,7 @@ export const Community = () => {
               )}
             </div>
           ))}
-
+*/}
           {/* Decorative elements */}
           <div className="absolute top-4 right-4 text-white/60 font-['Titan_One'] text-sm">
             ✦ Madrid
@@ -159,7 +160,7 @@ export const Community = () => {
         {/* Form Section */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h3 
+            <h3
               data-testid="form-title"
               className="font-['Titan_One'] text-2xl md:text-3xl uppercase text-white mb-2"
             >
@@ -171,7 +172,7 @@ export const Community = () => {
           </div>
 
           {submitted ? (
-            <div 
+            <div
               data-testid="form-success"
               className="p-8 bg-[var(--secondary)] text-[var(--foreground)] rounded-2xl border-2 border-[var(--foreground)] pico-shadow text-center"
             >
@@ -179,11 +180,11 @@ export const Community = () => {
               <p>Te contactaremos pronto con más información sobre el festival.</p>
             </div>
           ) : (
-            <form 
+            <form
               onSubmit={handleSubmit}
               data-testid="community-form"
               className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-8 rounded-2xl"
-              style={{ 
+              style={{
                 background: 'rgba(248, 245, 242, 0.95)',
                 border: '3px solid var(--foreground)'
               }}
