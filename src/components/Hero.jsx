@@ -145,16 +145,15 @@ export const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 animate-bounce z-20">
-        <a
-          href="#sobre"
-          onClick={(e) => scrollToSection(e, '#sobre')}
-          data-testid="hero-scroll-indicator"
-          className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-6 h-6" />
-        </a>
+      <div className="absolute bottom-16 md:bottom-20 w-full flex justify-center animate-bounce z-20">        <a
+        href="#sobre"
+        onClick={(e) => scrollToSection(e, '#sobre')}
+        data-testid="hero-scroll-indicator"
+        className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <ChevronDown className="w-6 h-6" />
+      </a>
       </div>
     </section >
   );
