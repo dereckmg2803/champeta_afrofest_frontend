@@ -14,7 +14,9 @@ export const Hero = () => {
     <section
       id="inicio"
       data-testid="hero-section"
-      className="relative min-h-screen flex items-end justify-center overflow-hidden pb-32 md:pb-40"
+      className="relative min-h-screen flex items-end justify-center overflow-hidden pb-40 md:pb-44"
+    //<section className="  relative min-h-screen flex flex-col justify-start sm:justify-center pt-40 sm:pt-0">
+    //<section className="min-h-screen flex items-start sm:items-center justify-center pt-32 sm:pt-0">
     >
       {/* Background with mural texture */}
       <div
@@ -122,7 +124,7 @@ export const Hero = () => {
 */}
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up -translate-y-6 sm:translate-y-0"
           style={{ animationDelay: '0.5s' }}
         >
           <a
