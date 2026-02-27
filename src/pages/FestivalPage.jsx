@@ -32,10 +32,17 @@ const galleryImages = [
 
 const editions = [
   {
-    year: '2025',
+    year: '2025 Dance Class',
     date: '15 de Noviembre',
     location: 'Melbourne, Australia',
-    highlights: ['Primera edición histórica', 'Más de 500 asistentes', '8 artistas en vivo', 'Talleres de baile'],
+    highlights: ['Más de 500 asistentes', '8 artistas en vivo', 'Talleres de baile'],
+    color: 'var(--cartagena-green)'
+  },
+  {
+    year: '2025 Nighy Party',
+    date: '29 de Agosto',
+    location: 'Melbourne, Australia',
+    highlights: ['Primera edición histórica', 'Night Party', 'Tropical Melbourne', 'Comunidad vibrante'],
     color: 'var(--cartagena-green)'
   }
 ];
@@ -43,7 +50,7 @@ const editions = [
 const stats = [
   { icon: Users, value: '500+', label: 'Asistentes', color: 'var(--cartagena-green)' },
   { icon: Star, value: '8', label: 'Artistas', color: 'var(--cartagena-yellow)' },
-  { icon: Calendar, value: '1', label: 'Edición', color: 'var(--cartagena-red)' },
+  { icon: Calendar, value: '2', label: 'Ediciónes', color: 'var(--cartagena-red)' },
   { icon: Trophy, value: '100%', label: 'Satisfacción', color: 'var(--caribbean-deep)' }
 ];
 
@@ -54,9 +61,9 @@ export default function FestivalPage() {
       <section className="relative py-32 overflow-hidden" style={{ backgroundColor: 'var(--dark-section)' }}>
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=1920"
+            src="/FestivalBanner.jpg"
             alt="Festival background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
@@ -143,7 +150,7 @@ export default function FestivalPage() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden border-4 border-[var(--foreground)] pico-shadow">
                 <img
-                  src="https://images.unsplash.com/photo-1690312022107-4fb10402aee6?w=600"
+                  src="/NacioPic.jpg"
                   alt="Comunidad Champeta"
                   className="w-full h-full object-cover"
                 />

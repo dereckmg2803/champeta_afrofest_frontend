@@ -50,15 +50,15 @@ export default function ChampetaPage() {
     <div className="min-h-screen bg-[var(--background)]">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden" style={{ backgroundColor: 'var(--dark-section)' }}>
-        <div 
+        <div
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1626041293558-21fd007149d6?w=1920')`,
+            backgroundImage: `url('/ChampetaBanner.jpg')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center 40%'
           }}
         />
-        
+
         {/* Decorative elements */}
         <div className="absolute top-20 right-10 opacity-60 hidden md:block animate-float">
           <VinylDisc size={100} />
@@ -68,7 +68,7 @@ export default function ChampetaPage() {
         </div>
         <MusicNote size={40} className="absolute top-40 left-1/4 opacity-50 hidden md:block" color="var(--cartagena-yellow)" />
         <Sparkle size={24} className="absolute bottom-40 right-1/4" color="var(--cartagena-green)" />
-        
+
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-6">
             Cultura
@@ -100,25 +100,25 @@ export default function ChampetaPage() {
               </h2>
               <div className="space-y-4 text-[var(--foreground)]/80">
                 <p>
-                  La <strong>champeta</strong> es un género musical de origen afro-caribeño nacido en 
-                  Cartagena de Indias, Colombia. Surgió en los barrios populares de la ciudad como 
+                  La <strong>champeta</strong> es un género musical de origen afro-caribeño nacido en
+                  Cartagena de Indias, Colombia. Surgió en los barrios populares de la ciudad como
                   una fusión de ritmos africanos con sonidos del Caribe.
                 </p>
                 <p>
-                  Su nombre proviene del cuchillo "champeta", una herramienta usada por pescadores 
+                  Su nombre proviene del cuchillo "champeta", una herramienta usada por pescadores
                   y vendedores de los mercados populares, reflejando su origen humilde y callejero.
                 </p>
                 <p>
-                  Más que un género musical, la champeta es una <strong>forma de vida</strong>, 
-                  una expresión de identidad afrodescendiente y un símbolo de resistencia cultural 
+                  Más que un género musical, la champeta es una <strong>forma de vida</strong>,
+                  una expresión de identidad afrodescendiente y un símbolo de resistencia cultural
                   que ha trascendido fronteras.
                 </p>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-video rounded-2xl overflow-hidden border-4 border-[var(--foreground)] pico-shadow">
-                <img 
-                  src="https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=800"
+                <img
+                  src="/RitmoPic.jpg"
                   alt="Baile Champeta"
                   className="w-full h-full object-cover"
                 />
@@ -145,11 +145,11 @@ export default function ChampetaPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {champetaElements.map((element, index) => (
-              <div 
+              <div
                 key={index}
                 className="p-8 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow"
               >
-                <div 
+                <div
                   className="w-14 h-14 mb-4 flex items-center justify-center rounded-xl"
                   style={{ backgroundColor: element.color }}
                 >
@@ -183,12 +183,12 @@ export default function ChampetaPage() {
             {timeline.map((item, index) => (
               <div key={index} className="flex gap-6 mb-8 last:mb-0">
                 <div className="flex flex-col items-center">
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-full flex items-center justify-center font-['Titan_One'] text-sm border-2"
-                    style={{ 
-                      backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' : 
-                                       index % 4 === 1 ? 'var(--cartagena-yellow)' :
-                                       index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)',
+                    style={{
+                      backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' :
+                        index % 4 === 1 ? 'var(--cartagena-yellow)' :
+                          index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)',
                       borderColor: 'var(--cartagena-yellow)',
                       color: index % 4 === 1 ? 'var(--foreground)' : 'white'
                     }}
@@ -222,16 +222,16 @@ export default function ChampetaPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {artists.map((artist, index) => (
-              <div 
+              <div
                 key={index}
                 className="text-center p-6 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow-sm"
               >
-                <div 
+                <div
                   className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ 
-                    backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' : 
-                                     index % 4 === 1 ? 'var(--cartagena-yellow)' :
-                                     index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)'
+                  style={{
+                    backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' :
+                      index % 4 === 1 ? 'var(--cartagena-yellow)' :
+                        index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)'
                   }}
                 >
                   <Music className="w-10 h-10 text-white" />
@@ -239,12 +239,12 @@ export default function ChampetaPage() {
                 <h3 className="font-['Titan_One'] text-lg uppercase text-[var(--foreground)]">
                   {artist.name}
                 </h3>
-                <span 
+                <span
                   className="inline-block px-2 py-1 text-xs font-bold uppercase rounded mt-2"
-                  style={{ 
-                    backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' : 
-                                     index % 4 === 1 ? 'var(--cartagena-yellow)' :
-                                     index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)',
+                  style={{
+                    backgroundColor: index % 4 === 0 ? 'var(--cartagena-green)' :
+                      index % 4 === 1 ? 'var(--cartagena-yellow)' :
+                        index % 4 === 2 ? 'var(--cartagena-red)' : 'var(--caribbean-deep)',
                     color: index % 4 === 1 ? 'var(--foreground)' : 'white'
                   }}
                 >
@@ -267,7 +267,7 @@ export default function ChampetaPage() {
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
             Experimenta la energía, el ritmo y la cultura en Champeta AfroFest
           </p>
-          <Link 
+          <Link
             to="/"
             className="inline-block px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-red)]/90 transition-colors"
           >

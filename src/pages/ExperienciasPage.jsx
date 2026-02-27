@@ -14,7 +14,7 @@ const experiences = [
       'Música continua durante todo el evento'
     ],
     color: 'var(--cartagena-red)',
-    image: 'https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=600'
+    image: '/MusicaPic.jpg'
   },
   {
     icon: GraduationCap,
@@ -27,7 +27,7 @@ const experiences = [
       'Sesiones de práctica libre'
     ],
     color: 'var(--cartagena-yellow)',
-    image: 'https://images.unsplash.com/photo-1626041293558-21fd007149d6?w=600'
+    image: '/TalleresPic.jpg'
   },
   {
     icon: Utensils,
@@ -40,7 +40,7 @@ const experiences = [
       'Postres tradicionales'
     ],
     color: 'var(--cartagena-green)',
-    image: 'https://images.unsplash.com/photo-1662368890898-9823476f5df9?w=600'
+    image: '/GastronomiaPic.jpg'
   },
   {
     icon: Users,
@@ -53,7 +53,7 @@ const experiences = [
       'Photo booth temático'
     ],
     color: 'var(--caribbean-deep)',
-    image: 'https://images.unsplash.com/photo-1690312022107-4fb10402aee6?w=600'
+    image: '/ComunidadPic.jpg'
   }
 ];
 
@@ -104,15 +104,15 @@ export default function ExperienciasPage() {
     <div className="min-h-screen bg-[var(--background)]">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden" style={{ backgroundColor: 'var(--dark-section)' }}>
-        <div 
+        <div
           className="absolute inset-0 opacity-25"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1733601375731-72c78e9fd421?w=1920')`,
+            backgroundImage: `url('/ExperienciasBanner.jpg')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center 40%'
           }}
         />
-        
+
         {/* Decorative elements */}
         <div className="absolute top-20 right-10 opacity-60 hidden md:block animate-float">
           <VinylDisc size={80} />
@@ -121,7 +121,7 @@ export default function ExperienciasPage() {
           <DancingCouple size={70} />
         </div>
         <MusicNote size={35} className="absolute top-40 left-1/4 opacity-50 hidden md:block" color="var(--cartagena-green)" />
-        
+
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--caribbean-deep)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-6">
             Actividades
@@ -130,7 +130,7 @@ export default function ExperienciasPage() {
             Las <span className="text-[var(--cartagena-yellow)]">Experiencias</span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-            Más que un concierto, Champeta AfroFest es una experiencia cultural completa. 
+            Más que un concierto, Champeta AfroFest es una experiencia cultural completa.
             Música, baile, gastronomía y comunidad en un solo lugar.
           </p>
         </div>
@@ -155,12 +155,12 @@ export default function ExperienciasPage() {
 
           <div className="space-y-16">
             {experiences.map((exp, index) => (
-              <div 
+              <div
                 key={index}
                 className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
               >
                 <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <div 
+                  <div
                     className="inline-flex items-center gap-3 mb-4 px-4 py-2 rounded-lg"
                     style={{ backgroundColor: exp.color }}
                   >
@@ -185,11 +185,11 @@ export default function ExperienciasPage() {
                   </ul>
                 </div>
                 <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                  <div 
+                  <div
                     className="aspect-video rounded-2xl overflow-hidden border-4 pico-shadow"
                     style={{ borderColor: exp.color }}
                   >
-                    <img 
+                    <img
                       src={exp.image}
                       alt={exp.title}
                       className="w-full h-full object-cover"
@@ -219,11 +219,11 @@ export default function ExperienciasPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {workshops.map((workshop, index) => (
-              <div 
+              <div
                 key={index}
                 className="p-6 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow-sm"
               >
-                <div 
+                <div
                   className="w-12 h-12 mb-4 rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: workshop.color }}
                 >
@@ -233,7 +233,7 @@ export default function ExperienciasPage() {
                   {workshop.title}
                 </h3>
                 <div className="flex items-center gap-2 mb-3">
-                  <span 
+                  <span
                     className="px-2 py-1 text-xs font-bold uppercase rounded"
                     style={{ backgroundColor: workshop.color, color: 'white' }}
                   >
@@ -270,27 +270,27 @@ export default function ExperienciasPage() {
 
           <div className="max-w-2xl mx-auto">
             {schedule.map((item, index) => (
-              <div 
+              <div
                 key={index}
                 className="flex gap-4 mb-4 last:mb-0"
               >
                 <div className="w-24 flex-shrink-0 text-right">
                   <span className="font-['Titan_One'] text-white/80">{item.time}</span>
                 </div>
-                <div 
+                <div
                   className="w-3 h-3 mt-2 rounded-full flex-shrink-0"
-                  style={{ 
-                    backgroundColor: item.type === 'workshop' ? 'var(--cartagena-yellow)' : 
-                                     item.type === 'music' ? 'var(--cartagena-red)' : 'var(--cartagena-green)'
+                  style={{
+                    backgroundColor: item.type === 'workshop' ? 'var(--cartagena-yellow)' :
+                      item.type === 'music' ? 'var(--cartagena-red)' : 'var(--cartagena-green)'
                   }}
                 />
                 <div className="flex-1 pb-4 border-b border-white/10">
                   <p className="text-white">{item.activity}</p>
-                  <span 
+                  <span
                     className="text-xs uppercase"
-                    style={{ 
-                      color: item.type === 'workshop' ? 'var(--cartagena-yellow)' : 
-                             item.type === 'music' ? 'var(--cartagena-red)' : 'var(--cartagena-green)'
+                    style={{
+                      color: item.type === 'workshop' ? 'var(--cartagena-yellow)' :
+                        item.type === 'music' ? 'var(--cartagena-red)' : 'var(--cartagena-green)'
                     }}
                   >
                     {item.type === 'workshop' ? 'Taller' : item.type === 'music' ? 'Música' : 'General'}
@@ -319,13 +319,13 @@ export default function ExperienciasPage() {
             No te pierdas la próxima edición de Champeta AfroFest
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+            <Link
               to="/#entradas"
               className="inline-block px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-red)]/90 transition-colors"
             >
               Comprar Entradas
             </Link>
-            <Link 
+            <Link
               to="/#comunidad"
               className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
             >
