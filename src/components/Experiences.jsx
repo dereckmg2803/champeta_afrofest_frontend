@@ -7,34 +7,34 @@ export const Experiences = () => {
       title: 'Música en Vivo',
       description: 'Disfruta de los mejores artistas de champeta en escenarios de primer nivel.',
       color: 'var(--cartagena-red)',
-      image: 'https://images.unsplash.com/photo-1733601375731-72c78e9fd421?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxhZnJvLWNvbG9tYmlhbiUyMGNoYW1wZXRhJTIwZGFuY2VycyUyMGVuZXJnZXRpYyUyMGZlc3RpdmFsJTIwY3Jvd2R8ZW58MHx8fHwxNzcxMjY2NzExfDA&ixlib=rb-4.1.0&q=85'
+      image: '/MusicaPic.jpg'
     },
     {
       icon: GraduationCap,
       title: 'Talleres de Champeta',
       description: 'Aprende los pasos más icónicos con bailarines profesionales.',
       color: 'var(--cartagena-yellow)',
-      image: 'https://images.unsplash.com/photo-1626041293558-21fd007149d6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHx2aWJyYW50JTIwY2FydGFnZW5hJTIwY29sb21iaWElMjBzdHJlZXQlMjBtdXJhbCUyMGFydCUyMGNvbG9yZnVsfGVufDB8fHx8MTc3MTI2NjcxMHww&ixlib=rb-4.1.0&q=85'
+      image: '/RitmoPic.jpg'
     },
     {
       icon: Utensils,
       title: 'Gastronomía Caribeña',
       description: 'Saborea los platos más tradicionales del Caribe colombiano.',
       color: 'var(--caribbean-deep)',
-      image: 'https://images.unsplash.com/photo-1662368890898-9823476f5df9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDR8MHwxfHNlYXJjaHw0fHx0cm9waWNhbCUyMHBhbG0lMjBsZWF2ZXMlMjB2aXZpZCUyMGNvbG9ycyUyMHRleHR1cmUlMjBicmlnaHR8ZW58MHx8fHwxNzcxMjY2NzEzfDA&ixlib=rb-4.1.0&q=85'
+      image: '/GastronomiaPic.jpg'
     },
     {
       icon: Users,
       title: 'Comunidad & Cultura',
       description: 'Conecta con la diáspora africana y celebra nuestra herencia cultural.',
       color: 'var(--cartagena-green)',
-      image: 'https://images.unsplash.com/photo-1690312022107-4fb10402aee6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxhZnJvLWNvbG9tYmlhbiUyMGNoYW1wZXRhJTIwZGFuY2VycyUyMGVuZXJnZXRpYyUyMGZlc3RpdmFsJTIwY3Jvd2R8ZW58MHx8fHwxNzcxMjY2NzExfDA&ixlib=rb-4.1.0&q=85'
+      image: '/ComunidadPic.jpg'
     }
   ];
 
   return (
-    <section 
-      id="experiencias" 
+    <section
+      id="experiencias"
       data-testid="experiences-section"
       className="py-20 md:py-32 relative overflow-hidden"
       style={{ backgroundColor: 'var(--background)' }}
@@ -48,7 +48,7 @@ export const Experiences = () => {
           <span className="inline-block px-4 py-2 bg-[var(--caribbean-deep)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--foreground)]">
             Experiencias
           </span>
-          <h2 
+          <h2
             data-testid="experiences-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
@@ -75,7 +75,7 @@ export const Experiences = () => {
                   alt={exp.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
-                <div 
+                <div
                   className="absolute inset-0 opacity-60"
                   style={{ backgroundColor: exp.color }}
                 />
@@ -87,7 +87,7 @@ export const Experiences = () => {
 
               {/* Content */}
               <div className="p-5">
-                <h3 
+                <h3
                   className="font-['Titan_One'] text-lg uppercase mb-2"
                   style={{ color: exp.color }}
                 >

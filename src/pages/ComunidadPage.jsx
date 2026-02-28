@@ -65,12 +65,12 @@ const communityMembers = [
   }
 ];
 
-const sponsors = [
-  { name: 'Trident Agency', initials: 'TA' },
-  { name: 'AfroCaribe', initials: 'AC' },
-  { name: 'Tropical Sounds', initials: 'TS' },
-  { name: 'EventGo', initials: 'EG' },
-  { name: 'DiscoWave', initials: 'DW' }
+const allies = [
+  { name: 'Latam Bridge', initials: 'LB' }, // sin logo
+  { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
+  { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
+  { name: 'Mincultura', logo: '/allies/mincultura.png' },
+  { name: 'SBS Spanish', logo: '/allies/sbs-spanish.png' }
 ];
 
 const testimonials = [
@@ -137,6 +137,16 @@ const testimonials = [
     testimonial:
       "Nacida en Cartagena y ahora radicada en Melbourne, combino mi profesión con mi pasión por el trenzado. Crecí rodeada de ritmo y música, por eso la champeta es parte esencial de mi identidad.",
     favorites: "Favoritas: La Cometa - Zaider | La Moral - DJ Tremendo, Lil Silvio, Cris y Rony"
+  },
+  {
+    name: "Jenn Bonilla",
+    role: "Profesional en Gestión y Análisis de Datos | Coordinadora de Proyectos en Australia",
+    image: "/testimonials/jennbonilla.jpg",
+    objectPosition: "object-[45%_30%]",
+    testimonial:
+      "Mujer latina apasionada por la cultura, la música y el poder de las comunidades. Creo en la música como puente cultural y en la champeta como una expresión viva de identidad, resistencia y alegría caribeña. Me inspira crear espacios donde nuestra cultura se celebre con orgullo, conexión y autenticidad.",
+    favorites:
+      "Favoritas: El Gato Volador | Tú Eres Bandida | El Serrucho"
   }
 ];
 
@@ -311,28 +321,51 @@ export default function ComunidadPage() {
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
               Aliados
             </span>
-            <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Nuestros <span className="text-[var(--cartagena-red)]">Sponsors</span>
+            <h2
+              data-testid="allies-title"
+              className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
+            >
+              Nuestros <span className="text-[var(--cartagena-red)]">Valecitas</span>
             </h2>
-            <p className="text-[var(--foreground)]/70 mt-4">
-              Empresas y organizaciones que creen en nuestra misión
+            <p className="text-[var(--foreground)]/70 text-base md:text-lg">
+              Empresas y organizaciones que creen en nuestra <span className="text-[var(--cartagena-green)] font-bold">misión</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
-            {sponsors.map((sponsor, index) => (
-              <div
-                key={index}
-                className="aspect-square p-6 bg-white rounded-2xl border-2 border-[var(--foreground)] flex flex-col items-center justify-center hover:scale-105 transition-transform cursor-pointer pico-shadow-sm"
-              >
-                <div className="w-14 h-14 mb-3 flex items-center justify-center bg-[var(--foreground)] rounded-xl text-white font-bold text-lg">
-                  {sponsor.initials}
+          <div className="text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
+              {allies.map((ally, index) => (
+                <div
+                  key={ally.name}
+                  data-testid={`ally-card-${index}`}
+                  className="group relative p-6 bg-white border-2 border-[var(--foreground)] rounded-xl flex items-center justify-center aspect-[4/3] hover:scale-105 transition-transform cursor-pointer"
+                >
+                  {/* Placeholder logo */}
+                  <div className="text-center">
+                    <div className="h-16 flex items-center justify-center mb-2">
+                      {ally.logo ? (
+                        <img
+                          src={ally.logo}
+                          alt={ally.name}
+                          className="max-h-12 w-auto object-contain bg-transparent"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 flex items-center justify-center bg-[var(--foreground)] rounded-lg text-white font-bold text-lg">
+                          {ally.initials}
+                        </div>
+                      )}
+                    </div>
+
+                    <span className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">
+                      {ally.name}
+                    </span>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/10 rounded-xl transition-colors" />
                 </div>
-                <span className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider text-center">
-                  {sponsor.name}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-12">

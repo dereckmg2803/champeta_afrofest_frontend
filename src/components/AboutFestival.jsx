@@ -72,7 +72,39 @@ export const AboutFestival = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
+        {/* Festival Video Feature */}
+        <div
+          data-testid="about-feature-video"
+          className="max-w-5xl mx-auto mt-12 md:mt-16"
+        >
+          <div className="group p-6 md:p-8 bg-white border-2 border-[var(--foreground)] rounded-2xl pico-shadow">
+            {/* Festival Video Feature 
+            <h3 className="font-['Titan_One'] text-2xl md:text-3xl uppercase text-[var(--foreground)] mb-6 text-center">
+              Revive los <span className="text-[var(--cartagena-red)]">Mejores Momentos</span>
+            </h3>*/}
+
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border-2 border-[var(--foreground)]">
+
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube-nocookie.com/embed/XcEEA9iwUqU"
+                title="Champeta AfroFest 2024 - Mejores Momentos"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+
+            </div>
+
+            <p className="text-center mt-6 text-[var(--foreground)]/70 text-sm md:text-base leading-relaxed">
+              Así se vivió la energía, el ritmo y la fuerza cultural de Champeta AfroFest.
+              Una celebración donde la música une corazones y la champeta se convierte en identidad.
+            </p>
+
+          </div>
+        </div>
+
+        {/* Features Grid 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div
@@ -96,7 +128,7 @@ export const AboutFestival = () => {
             </div>
           ))}
         </div>
-
+*/}
         {/* CTA Button */}
         <div className="text-center mt-12">
           <a

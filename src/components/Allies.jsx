@@ -1,10 +1,10 @@
 export const Allies = () => {
   const allies = [
-    { name: 'Trident Agency', initials: 'TA' },
-    { name: 'AfroCaribe', initials: 'AC' },
-    { name: 'Tropical Sounds', initials: 'TS' },
-    { name: 'EventGo', initials: 'EG' },
-    { name: 'DiscoWave', initials: 'DW' }
+    { name: 'Latam Bridge', initials: 'LB' }, // sin logo
+    { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
+    { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
+    { name: 'Mincultura', logo: '/allies/mincultura.png' },
+    { name: 'SBS Spanish', logo: '/allies/sbs-spanish.png' }
   ];
 
   return (
@@ -18,7 +18,7 @@ export const Allies = () => {
       <div
         className="absolute bottom-0 left-0 w-full h-48 opacity-10"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1690312022107-4fb10402aee6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxhZnJvLWNvbG9tYmlhbiUyMGNoYW1wZXRhJTIwZGFuY2VycyUyMGVuZXJnZXRpYyUyMGZlc3RpdmFsJTIwY3Jvd2R8ZW58MHx8fHwxNzcxMjY2NzExfDA&ixlib=rb-4.1.0&q=85')`,
+          backgroundImage: `url('/FestivalBanner.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center'
         }}
@@ -31,10 +31,10 @@ export const Allies = () => {
             data-testid="allies-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            Socios & <span className="text-[var(--cartagena-green)]">Aliados</span>
+            Nuestros <span className="text-[var(--cartagena-green)]">Valecitas</span>
           </h2>
           <p className="text-[var(--foreground)]/70 text-base md:text-lg">
-            Contáctanos y ayuda a crecer el <span className="text-[var(--cartagena-red)] font-bold">movimiento</span>
+            Emprezas y organizaciones que creen en nuestra <span className="text-[var(--cartagena-red)] font-bold">misión</span>
           </p>
         </div>
 
@@ -66,9 +66,20 @@ export const Allies = () => {
             >
               {/* Placeholder logo */}
               <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-[var(--foreground)] rounded-lg text-white font-bold text-lg">
-                  {ally.initials}
+                <div className="h-16 flex items-center justify-center mb-2">
+                  {ally.logo ? (
+                    <img
+                      src={ally.logo}
+                      alt={ally.name}
+                      className="max-h-12 w-auto object-contain bg-transparent"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 flex items-center justify-center bg-[var(--foreground)] rounded-lg text-white font-bold text-lg">
+                      {ally.initials}
+                    </div>
+                  )}
                 </div>
+
                 <span className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">
                   {ally.name}
                 </span>
