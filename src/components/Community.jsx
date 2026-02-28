@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { MapPin, Instagram, Facebook, Youtube, Twitter, Music } from 'lucide-react';
-
+import axios from 'axios';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 export const Community = () => {
+
   const [formData, setFormData] = useState({
-    nombre: '',
-    telefono: '',
-    correo: '',
-    ciudad: '',
-    pais: '',
-    mensaje: '',
-    autorizo: false
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    country: '',
+    message: '',
+    accepted_terms: false
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const locations = [
     { name: 'Colombia', x: '25%', y: '55%', main: true },
@@ -31,22 +35,57 @@ export const Community = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.nombre.trim()) newErrors.nombre = 'Nombre requerido';
-    if (!formData.telefono.trim()) newErrors.telefono = 'Teléfono requerido';
-    if (!formData.correo.trim()) newErrors.correo = 'Correo requerido';
-    else if (!/\S+@\S+\.\S+/.test(formData.correo)) newErrors.correo = 'Correo inválido';
-    if (!formData.ciudad.trim()) newErrors.ciudad = 'Ciudad requerida';
-    if (!formData.pais.trim()) newErrors.pais = 'País requerido';
-    if (!formData.autorizo) newErrors.autorizo = 'Debe autorizar el uso de datos';
+
+    if (!formData.name.trim()) newErrors.name = 'Nombre requerido';
+    if (!formData.phone.trim()) newErrors.phone = 'Teléfono requerido';
+    if (!formData.email.trim()) newErrors.email = 'Correo requerido';
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Correo inválido';
+
+    if (!formData.city.trim()) newErrors.city = 'Ciudad requerida';
+    if (!formData.country.trim()) newErrors.country = 'País requerido';
+    if (!formData.accepted_terms)
+      newErrors.accepted_terms = 'Debe autorizar el uso de datos';
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      await axios.post(`${API}/community-members`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        city: formData.city,
+        country: formData.country,
+        accepted_terms: formData.accepted_terms,
+        message: formData.message
+      });
+
       setSubmitted(true);
-      // Solo vista - no hay envío real
+
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        city: '',
+        country: '',
+        message: '',
+        accepted_terms: false
+      });
+
+    } catch (error) {
+      console.error(error);
+      alert('Error enviando el formulario');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -148,13 +187,14 @@ export const Community = () => {
             </div>
           ))}
 */}
-          {/* Decorative elements */}
+          {/* Decorative elements 
           <div className="absolute top-4 right-4 text-white/60 font-['Titan_One'] text-sm">
             ✦ Madrid
           </div>
           <div className="absolute bottom-4 right-4 text-white/60 font-['Titan_One'] text-sm">
             Bogotá ✦
           </div>
+          */}
         </div>
 
         {/* Form Section */}
@@ -194,9 +234,9 @@ export const Community = () => {
                 <div>
                   <input
                     type="text"
-                    name="nombre"
+                    name="name"
                     placeholder="Nombre"
-                    value={formData.nombre}
+                    value={formData.name}
                     onChange={handleChange}
                     data-testid="input-nombre"
                     className={`w-full px-4 py-3 border-2 rounded-xl bg-white text-[var(--foreground)] placeholder:text-[var(--foreground)]/50 focus:outline-none focus:border-[var(--primary)] ${errors.nombre ? 'border-[var(--accent)]' : 'border-[var(--foreground)]'}`}
@@ -207,9 +247,9 @@ export const Community = () => {
                 <div>
                   <input
                     type="tel"
-                    name="telefono"
+                    name="phone"
                     placeholder="Teléfono"
-                    value={formData.telefono}
+                    value={formData.phone}
                     onChange={handleChange}
                     data-testid="input-telefono"
                     className={`w-full px-4 py-3 border-2 rounded-xl bg-white text-[var(--foreground)] placeholder:text-[var(--foreground)]/50 focus:outline-none focus:border-[var(--primary)] ${errors.telefono ? 'border-[var(--accent)]' : 'border-[var(--foreground)]'}`}
@@ -220,9 +260,9 @@ export const Community = () => {
                 <div>
                   <input
                     type="email"
-                    name="correo"
+                    name="email"
                     placeholder="Correo Electrónico"
-                    value={formData.correo}
+                    value={formData.email}
                     onChange={handleChange}
                     data-testid="input-correo"
                     className={`w-full px-4 py-3 border-2 rounded-xl bg-white text-[var(--foreground)] placeholder:text-[var(--foreground)]/50 focus:outline-none focus:border-[var(--primary)] ${errors.correo ? 'border-[var(--accent)]' : 'border-[var(--foreground)]'}`}
@@ -234,9 +274,9 @@ export const Community = () => {
                   <div>
                     <input
                       type="text"
-                      name="ciudad"
+                      name="city"
                       placeholder="Ciudad"
-                      value={formData.ciudad}
+                      value={formData.city}
                       onChange={handleChange}
                       data-testid="input-ciudad"
                       className={`w-full px-4 py-3 border-2 rounded-xl bg-white text-[var(--foreground)] placeholder:text-[var(--foreground)]/50 focus:outline-none focus:border-[var(--primary)] ${errors.ciudad ? 'border-[var(--accent)]' : 'border-[var(--foreground)]'}`}
@@ -246,9 +286,9 @@ export const Community = () => {
                   <div>
                     <input
                       type="text"
-                      name="pais"
+                      name="country"
                       placeholder="País"
-                      value={formData.pais}
+                      value={formData.country}
                       onChange={handleChange}
                       data-testid="input-pais"
                       className={`w-full px-4 py-3 border-2 rounded-xl bg-white text-[var(--foreground)] placeholder:text-[var(--foreground)]/50 focus:outline-none focus:border-[var(--primary)] ${errors.pais ? 'border-[var(--accent)]' : 'border-[var(--foreground)]'}`}
@@ -260,17 +300,27 @@ export const Community = () => {
                 <div className="flex items-start gap-3">
                   <input
                     type="checkbox"
-                    name="autorizo"
-                    checked={formData.autorizo}
+                    name="accepted_terms"
+                    checked={formData.accepted_terms}
                     onChange={handleChange}
                     data-testid="input-autorizo"
-                    className="w-5 h-5 mt-0.5 accent-[var(--primary)]"
+                    className={`w-5 h-5 mt-0.5 accent-[var(--primary)] border-2 rounded
+      ${errors.accepted_terms ? 'border-red-500 ring-2 ring-red-400' : 'border-[var(--foreground)]'}
+    `}
                   />
-                  <label className="text-sm text-[var(--foreground)]/70">
+
+                  <label
+                    className={`text-sm ${errors.accepted_terms ? 'text-red-600 font-semibold' : 'text-[var(--foreground)]'
+                      }`}
+                  >
                     Autorizo el uso de mis datos para recibir información del festival.
                   </label>
                 </div>
-                {errors.autorizo && <span className="text-xs text-[var(--accent)]">{errors.autorizo}</span>}
+                {errors.accepted_terms && (
+                  <span className="text-xs text-red-600 font-medium">
+                    {errors.accepted_terms}
+                  </span>
+                )}
               </div>
 
               {/* Right Column - Social + Message */}
@@ -295,9 +345,9 @@ export const Community = () => {
                 {/* Message */}
                 <div>
                   <textarea
-                    name="mensaje"
+                    name="message"
                     placeholder="Tu Mensaje (Opcional)"
-                    value={formData.mensaje}
+                    value={formData.message}
                     onChange={handleChange}
                     rows={4}
                     data-testid="input-mensaje"
