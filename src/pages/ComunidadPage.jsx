@@ -66,7 +66,7 @@ const communityMembers = [
 ];
 
 const allies = [
-  { name: 'Latam Bridge', initials: 'LB' }, // sin logo
+  { name: 'Latam Bridge', logo: '/allies/latam-bridge.png' }, // sin logo
   { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
   { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
   { name: 'Mincultura', logo: '/allies/mincultura.png' },
@@ -85,11 +85,11 @@ const testimonials = [
   },
   {
     name: "Heidy Montes Garces",
-    role: "Músico percusionista | Embajadora cultural",
+    role: "Músico Percusionista | Maestría en Gerencia de las Artes y la Cultura",
     image: "/testimonials/heidy.jpg",
     objectPosition: "object-[50%_30%]",
     testimonial:
-      "He trabajado en festivales nacionales e internacionales promoviendo la música y las artes escénicas.",
+      "Me apasiona diseñar proyectos culturales  inclusivos que conecten con diversas comunidades, mejoren la accesibilidad a las artes y generen oportunidades para creativos y artistas en Colombia y Latinoamérica.",
     favorites:
       "Favoritas: El Reemplazo - Sayayin, El Tambor - Koffee El Cafetero, La Pupileta - Bazurto All Stars"
   },

@@ -1,6 +1,6 @@
 export const Allies = () => {
   const allies = [
-    { name: 'Latam Bridge', initials: 'LB' }, // sin logo
+    { name: 'Latam Bridge', logo: '/allies/latam-bridge.png' }, // sin logo
     { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
     { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
     { name: 'Mincultura', logo: '/allies/mincultura.png' },
