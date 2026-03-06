@@ -5,29 +5,29 @@ export const Experiences = () => {
   const experiences = [
     {
       icon: Music,
-      title: t('experiences.items.musicTitle'),
-      description: t('experiences.items.musicDesc'),
+      title: t('experiencesl.items.musicTitle'),
+      description: t('experiencesl.items.musicDesc'),
       color: 'var(--cartagena-red)',
       image: '/MusicaPic.jpg'
     },
     {
       icon: GraduationCap,
-      title: t('experiences.items.workshopTitle'),
-      description: t('experiences.items.workshopDesc'),
+      title: t('experiencesl.items.workshopTitle'),
+      description: t('experiencesl.items.workshopDesc'),
       color: 'var(--cartagena-yellow)',
       image: '/RitmoPic.jpg'
     },
     {
       icon: Utensils,
-      title: t('experiences.items.foodTitle'),
-      description: t('experiences.items.foodDesc'),
+      title: t('experiencesl.items.foodTitle'),
+      description: t('experiencesl.items.foodDesc'),
       color: 'var(--caribbean-deep)',
       image: '/GastronomiaPic.jpg'
     },
     {
       icon: Users,
-      title: t('experiences.items.communityTitle'),
-      description: t('experiences.items.communityDesc'),
+      title: t('experiencesl.items.communityTitle'),
+      description: t('experiencesl.items.communityDesc'),
       color: 'var(--cartagena-green)',
       image: '/ComunidadPic.jpg'
     }
@@ -47,16 +47,16 @@ export const Experiences = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[var(--caribbean-deep)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--foreground)]">
-            {t('experiences.badge')}
+            {t('experiencesl.badge')}
           </span>
           <h2
             data-testid="experiences-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            {t('experiences.title')} <span className="text-[var(--cartagena-green)]">{t('experiences.highlight')}</span>
+            {t('experiencesl.title')} <span className="text-[var(--cartagena-green)]">{t('experiencesl.highlight')}</span>
           </h2>
           <p className="text-[var(--foreground)]/70 text-base md:text-lg max-w-2xl mx-auto">
-            {t('experiences.subtitle')}
+            {t('experiencesl.subtitle')}
           </p>
         </div>
 

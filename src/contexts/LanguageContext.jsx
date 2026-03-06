@@ -18,7 +18,7 @@ const translations = {
       knowFestival: 'Conoce el Festival',
       scroll: 'Scroll',
     },
-    experiences: {
+    experiencesl: {
       badge: 'Experiencias',
       title: 'Disfruta las Experiencias del Festival',
       highlight: 'Experiencias',
@@ -100,7 +100,7 @@ const translations = {
 
       note: '* Los precios pueden variar. Consulta términos y condiciones.'
     },
-    community: {
+    communityl: {
       badge: 'Comunidad & Diáspora',
 
       title: 'Unimos ',
@@ -703,7 +703,7 @@ const translations = {
       knowFestival: 'Discover Festival',
       scroll: 'Scroll',
     },
-    experiences: {
+    experiencesl: {
       badge: 'Experiences',
       title: 'Enjoy the Festival ',
       highlight: 'Experiences',
@@ -785,7 +785,7 @@ const translations = {
 
       note: '* Prices may vary. See terms and conditions.'
     },
-    community: {
+    communityl: {
       badge: 'Community & Diaspora',
 
       title: 'Connecting ',
