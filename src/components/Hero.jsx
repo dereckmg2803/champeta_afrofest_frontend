@@ -1,7 +1,11 @@
 import { ChevronDown } from 'lucide-react';
 import { VinylDisc, Sparkle, MusicNote, WavePattern, DancingCouple } from './CartagenaIllustrations';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Hero = () => {
+  const { t } = useLanguage();
+
+
   const scrollToSection = (e, href) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -133,7 +137,7 @@ export const Hero = () => {
             data-testid="hero-cta-tickets"
             className="px-8 py-4 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl text-lg hover:bg-[var(--cartagena-yellow)]/90 transition-colors"
           >
-            Comprar Entradas
+            {t('hero.buyTickets')}
           </a>
           <a
             href="#sobre"
@@ -141,7 +145,7 @@ export const Hero = () => {
             data-testid="hero-cta-about"
             className="px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--cartagena-green)] rounded-xl text-lg hover:bg-[var(--cartagena-green)] transition-all duration-300"
           >
-            Conoce el Festival
+            {t('hero.knowFestival')}
           </a>
         </div>
       </div>
@@ -153,7 +157,7 @@ export const Hero = () => {
         data-testid="hero-scroll-indicator"
         className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors"
       >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <span className="text-xs uppercase tracking-widest">{t('hero.scroll')}</span>
         <ChevronDown className="w-6 h-6" />
       </a>
       </div>

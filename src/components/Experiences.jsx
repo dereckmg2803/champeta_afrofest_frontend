@@ -1,32 +1,33 @@
 import { Music, GraduationCap, Utensils, Users } from 'lucide-react';
-
+import { useLanguage } from '../contexts/LanguageContext';
 export const Experiences = () => {
+  const { t } = useLanguage();
   const experiences = [
     {
       icon: Music,
-      title: 'Música en Vivo',
-      description: 'Disfruta de los mejores artistas de champeta en escenarios de primer nivel.',
+      title: t('experiences.items.musicTitle'),
+      description: t('experiences.items.musicDesc'),
       color: 'var(--cartagena-red)',
       image: '/MusicaPic.jpg'
     },
     {
       icon: GraduationCap,
-      title: 'Talleres de Champeta',
-      description: 'Aprende los pasos más icónicos con bailarines profesionales.',
+      title: t('experiences.items.workshopTitle'),
+      description: t('experiences.items.workshopDesc'),
       color: 'var(--cartagena-yellow)',
       image: '/RitmoPic.jpg'
     },
     {
       icon: Utensils,
-      title: 'Gastronomía Caribeña',
-      description: 'Saborea los platos más tradicionales del Caribe colombiano.',
+      title: t('experiences.items.foodTitle'),
+      description: t('experiences.items.foodDesc'),
       color: 'var(--caribbean-deep)',
       image: '/GastronomiaPic.jpg'
     },
     {
       icon: Users,
-      title: 'Comunidad & Cultura',
-      description: 'Conecta con la diáspora africana y celebra nuestra herencia cultural.',
+      title: t('experiences.items.communityTitle'),
+      description: t('experiences.items.communityDesc'),
       color: 'var(--cartagena-green)',
       image: '/ComunidadPic.jpg'
     }
@@ -46,16 +47,16 @@ export const Experiences = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[var(--caribbean-deep)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--foreground)]">
-            Experiencias
+            {t('experiences.badge')}
           </span>
           <h2
             data-testid="experiences-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            Disfruta las <span className="text-[var(--cartagena-green)]">Experiencias</span> del Festival
+            {t('experiences.title')} <span className="text-[var(--cartagena-green)]">{t('experiences.highlight')}</span>
           </h2>
           <p className="text-[var(--foreground)]/70 text-base md:text-lg max-w-2xl mx-auto">
-            Más que un concierto, una experiencia cultural completa
+            {t('experiences.subtitle')}
           </p>
         </div>
 

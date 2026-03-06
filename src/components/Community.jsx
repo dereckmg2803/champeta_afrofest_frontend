@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { MapPin, Instagram, Facebook, Youtube, Twitter, Music } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import axios from 'axios';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 export const Community = () => {
-
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -36,16 +37,22 @@ export const Community = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) newErrors.name = 'Nombre requerido';
-    if (!formData.phone.trim()) newErrors.phone = 'Teléfono requerido';
-    if (!formData.email.trim()) newErrors.email = 'Correo requerido';
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = 'Correo inválido';
+    if (!formData.name.trim()) newErrors.name = t('community.errors.name');
+    if (!formData.phone.trim()) newErrors.phone = t('community.errors.phone');
 
-    if (!formData.city.trim()) newErrors.city = 'Ciudad requerida';
-    if (!formData.country.trim()) newErrors.country = 'País requerido';
+    if (!formData.email.trim())
+      newErrors.email = t('community.errors.email');
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = t('community.errors.invalidEmail');
+
+    if (!formData.city.trim())
+      newErrors.city = t('community.errors.city');
+
+    if (!formData.country.trim())
+      newErrors.country = t('community.errors.country');
+
     if (!formData.accepted_terms)
-      newErrors.accepted_terms = 'Debe autorizar el uso de datos';
+      newErrors.accepted_terms = t('community.errors.terms');
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -83,7 +90,7 @@ export const Community = () => {
 
     } catch (error) {
       console.error(error);
-      alert('Error enviando el formulario');
+      alert(t('community.errors.submitError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -121,13 +128,13 @@ export const Community = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--cartagena-yellow)]">
-            Comunidad & Diáspora
+            {t('community.badge')}
           </span>
           <h2
             data-testid="community-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-white mb-4"
           >
-            Unimos <span className="text-[var(--cartagena-yellow)]">Cartagena</span> con el <span className="text-[var(--cartagena-green)]">Mundo</span>
+            {t('community.title')} <span className="text-[var(--cartagena-yellow)]">{t('community.highlightCity')} </span> {t('community.titleMiddle')} <span className="text-[var(--cartagena-green)]">{t('community.highlightWorld')}</span>
           </h2>
         </div>
 
@@ -204,10 +211,10 @@ export const Community = () => {
               data-testid="form-title"
               className="font-['Titan_One'] text-2xl md:text-3xl uppercase text-white mb-2"
             >
-              Sé Parte del <span className="text-[var(--secondary)]">Movimiento</span>
+              {t('community.formTitle')} <span className="text-[var(--secondary)]">{t('community.formHighlight')}</span>
             </h3>
             <p className="text-white/70 text-sm md:text-base">
-              ¿Quieres ser aliado de Champeta AfroFest? Llena este formulario.
+              {t('community.formSubtitle')}
             </p>
           </div>
 
@@ -216,8 +223,8 @@ export const Community = () => {
               data-testid="form-success"
               className="p-8 bg-[var(--secondary)] text-[var(--foreground)] rounded-2xl border-2 border-[var(--foreground)] pico-shadow text-center"
             >
-              <h4 className="font-['Titan_One'] text-2xl uppercase mb-2">¡Gracias por unirte!</h4>
-              <p>Te contactaremos pronto con más información sobre el festival.</p>
+              <h4 className="font-['Titan_One'] text-2xl uppercase mb-2">{t('community.successTitle')}</h4>
+              <p>{t('community.successMessage')}</p>
             </div>
           ) : (
             <form
@@ -235,7 +242,7 @@ export const Community = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Nombre"
+                    placeholder={t('community.placeholders.name')}
                     value={formData.name}
                     onChange={handleChange}
                     data-testid="input-nombre"
@@ -248,7 +255,7 @@ export const Community = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Teléfono"
+                    placeholder={t('community.placeholders.phone')}
                     value={formData.phone}
                     onChange={handleChange}
                     data-testid="input-telefono"
@@ -261,7 +268,7 @@ export const Community = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Correo Electrónico"
+                    placeholder={t('community.placeholders.email')}
                     value={formData.email}
                     onChange={handleChange}
                     data-testid="input-correo"
@@ -275,7 +282,7 @@ export const Community = () => {
                     <input
                       type="text"
                       name="city"
-                      placeholder="Ciudad"
+                      placeholder={t('community.placeholders.city')}
                       value={formData.city}
                       onChange={handleChange}
                       data-testid="input-ciudad"
@@ -287,7 +294,7 @@ export const Community = () => {
                     <input
                       type="text"
                       name="country"
-                      placeholder="País"
+                      placeholder={t('community.placeholders.country')}
                       value={formData.country}
                       onChange={handleChange}
                       data-testid="input-pais"
@@ -313,7 +320,7 @@ export const Community = () => {
                     className={`text-sm ${errors.accepted_terms ? 'text-red-600 font-semibold' : 'text-[var(--foreground)]'
                       }`}
                   >
-                    Autorizo el uso de mis datos para recibir información del festival.
+                    {t('community.checkbox')}
                   </label>
                 </div>
                 {errors.accepted_terms && (
@@ -346,7 +353,7 @@ export const Community = () => {
                 <div>
                   <textarea
                     name="message"
-                    placeholder="Tu Mensaje (Opcional)"
+                    placeholder={t('community.placeholders.message')}
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
@@ -361,11 +368,11 @@ export const Community = () => {
                   data-testid="form-submit"
                   className="w-full mt-6 px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl hover:bg-[var(--cartagena-green)]/90 transition-colors"
                 >
-                  Enviar
+                  {t('community.submit')}
                 </button>
 
                 <p className="text-xs text-[var(--foreground)]/50 text-center">
-                  Revisar políticas de privacidad
+                  {t('community.privacy')}
                 </p>
               </div>
             </form>

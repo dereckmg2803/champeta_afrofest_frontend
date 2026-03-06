@@ -1,4 +1,6 @@
+import { useLanguage } from '../contexts/LanguageContext';
 export const Allies = () => {
+  const { t } = useLanguage();
   const allies = [
     { name: 'Latam Bridge', logo: '/allies/latam-bridge.png' }, // sin logo
     { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
@@ -31,10 +33,10 @@ export const Allies = () => {
             data-testid="allies-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            Nuestros <span className="text-[var(--cartagena-green)]">Valecitas</span>
+            {t('allies.title')} <span className="text-[var(--cartagena-green)]">{t('allies.highlight')}</span>
           </h2>
           <p className="text-[var(--foreground)]/70 text-base md:text-lg">
-            Emprezas y organizaciones que creen en nuestra <span className="text-[var(--cartagena-red)] font-bold">misión</span>
+            {t('allies.subtitleStart')}<span className="text-[var(--cartagena-red)] font-bold">{t('allies.subtitleHighlight')}</span>
           </p>
         </div>
 
@@ -47,13 +49,13 @@ export const Allies = () => {
           />
           <span className="text-[var(--foreground)]/50 hidden sm:block">|</span>
           <p className="text-sm md:text-base text-[var(--foreground)] text-center sm:text-left">
-            La <span className="font-bold">COMUNIDAD</span> hace posible el <span className="font-bold text-[var(--cartagena-red)]">FESTIVAL</span>
+            {t('allies.communityTextStart')} <span className="font-bold">{t('allies.communityBold')}</span> {t('allies.communityMiddle')} <span className="font-bold text-[var(--cartagena-red)]"> {t('allies.communityFestival')}</span>
           </p>
         </div>
 
         {/* CTA Text */}
         <p className="text-center text-[var(--foreground)]/70 mb-8">
-          ¿Quieres ser aliado de Champeta AfroFest? Apoya la <span className="text-[var(--cartagena-green)] font-bold">CHAMPETA AFROCARIBEÑA</span>
+          {t('allies.ctaText')} <span className="text-[var(--cartagena-green)] font-bold">{t('allies.champeta')}</span>
         </p>
 
         {/* Allies Grid */}
@@ -102,7 +104,7 @@ export const Allies = () => {
             data-testid="allies-cta"
             className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl hover:bg-[var(--cartagena-green)]/90 transition-colors"
           >
-            Contáctanos
+            {t('allies.contact')}
           </a>
         </div>
       </div>

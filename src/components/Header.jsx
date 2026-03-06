@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Instagram } from 'lucide-react';
+import { LanguageSelector } from './LanguageSelector';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +18,11 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: '#inicio', label: 'Inicio', isAnchor: true },
-    { href: '/festival', label: 'Festival', isAnchor: false },
-    { href: '/champeta', label: 'Champeta', isAnchor: false },
-    { href: '/experiencias', label: 'Experiencias', isAnchor: false },
-    { href: '/comunidad', label: 'Comunidad', isAnchor: false },
+    { href: '#inicio', label: t('nav.inicio'), key: 'inicio', isAnchor: true },
+    { href: '/festival', label: t('nav.festival'), key: 'festival', isAnchor: false },
+    { href: '/champeta', label: t('nav.champeta'), key: 'champeta', isAnchor: false },
+    { href: '/experiencias', label: t('nav.experiencias'), key: 'experiencias', isAnchor: false },
+    { href: '/comunidad', label: t('nav.comunidad'), key: 'comunidad', isAnchor: false },
   ];
 
   const scrollToSection = (e, href) => {
@@ -59,10 +62,10 @@ export const Header = () => {
             {navLinks.map((link) => (
               link.isAnchor ? (
                 <a
-                  key={link.href}
+                  key={link.key}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  data-testid={`nav-${link.label.toLowerCase()}`}
+                  data-testid={`nav-${link.key}`}
                   className={`text-sm font-bold uppercase tracking-wider transition-colors relative group
   ${isScrolled ? "text-black" : "text-white"}
   hover:text-[var(--cartagena-yellow)]`}
@@ -72,9 +75,9 @@ export const Header = () => {
                 </a>
               ) : (
                 <Link
-                  key={link.href}
+                  key={link.key}
                   to={link.href}
-                  data-testid={`nav-${link.label.toLowerCase()}`}
+                  data-testid={`nav-${link.key}`}
                   className={`text-sm font-bold uppercase tracking-wider transition-colors relative group
   ${isScrolled ? "text-black" : "text-white"}
   hover:text-[var(--cartagena-yellow)]`}
@@ -86,8 +89,11 @@ export const Header = () => {
             ))}
           </div>
 
-          {/* Right side: Instagram + CTA */}
+          {/* Right side: Language + Instagram + CTA */}
           <div className="hidden md:flex items-center gap-4">
+            {/* Language Selector */}
+            <LanguageSelector isScrolled={isScrolled} />
+
             <a
               href="https://www.instagram.com/champetaafrofest/"
               target="_blank"
@@ -107,7 +113,7 @@ export const Header = () => {
               data-testid="header-cta"
               className="px-6 py-2.5 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-sm tracking-wider border-2 border-[var(--foreground)] pico-shadow-sm rounded-lg"
             >
-              Únete a la Comunidad
+              {t('nav.joinCommunity')}
             </a>
           </div>
 
@@ -142,10 +148,10 @@ export const Header = () => {
           {navLinks.map((link, index) => (
             link.isAnchor ? (
               <a
-                key={link.href}
+                key={link.key}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                data-testid={`mobile-nav-${link.label.toLowerCase()}`}
+                data-testid={`mobile-nav-${link.key}`}
                 className="text-2xl font-['Titan_One'] uppercase text-[var(--foreground)] hover:text-[var(--cartagena-yellow)] transition-colors"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -153,10 +159,10 @@ export const Header = () => {
               </a>
             ) : (
               <Link
-                key={link.href}
+                key={link.key}
                 to={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                data-testid={`mobile-nav-${link.label.toLowerCase()}`}
+                data-testid={`mobile-nav-${link.key}`}
                 className="text-2xl font-['Titan_One'] uppercase text-[var(--foreground)] hover:text-[var(--cartagena-yellow)] transition-colors"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -165,6 +171,13 @@ export const Header = () => {
             )
           ))}
           <hr className="border-[var(--foreground)]/20" />
+
+          {/* Mobile Language Selector */}
+          <div className="flex items-center gap-3">
+            <span className="text-lg font-bold">{t('languages.es') === 'Español' ? 'Idioma:' : 'Language:'}</span>
+            <LanguageSelector isScrolled={true} isMobile={true} />
+          </div>
+
           <a
             href="https://www.instagram.com/champetaafrofest/"
             target="_blank"
@@ -181,7 +194,7 @@ export const Header = () => {
             data-testid="mobile-cta"
             className="mt-4 px-6 py-4 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-center tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl"
           >
-            Únete a la Comunidad
+            {t('nav.joinCommunity')}
           </a>
         </div>
       </div>

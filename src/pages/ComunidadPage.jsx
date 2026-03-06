@@ -1,156 +1,145 @@
 import { Link } from 'react-router-dom';
 import { Users, Heart, Handshake, Star, Award } from 'lucide-react';
 import { DancingCouple, Sparkle } from '../components/CartagenaIllustrations';
-
-const communityMembers = [
-  {
-    type: 'Fundadores',
-    icon: Star,
-    color: 'var(--cartagena-yellow)',
-    members: [
-      {
-        name: 'Comunidad Costeña',
-        role: 'Fundadores del movimiento',
-        description:
-          'El colectivo que soñó con crear este espacio de celebración cultural'
-      }
-    ]
-  },
-  {
-    type: 'Colaboradores',
-    icon: Heart,
-    color: 'var(--cartagena-red)',
-    members: [
-      {
-        name: 'Artistas Locales',
-        role: 'Talento Musical',
-        description:
-          'Los artistas que dan vida al festival con su música y energía'
-      },
-      {
-        name: 'Bailarines',
-        role: 'Instructores de Baile',
-        description:
-          'Expertos en champeta que comparten su conocimiento en los talleres'
-      },
-      {
-        name: 'Voluntarios',
-        role: 'Equipo de Apoyo',
-        description:
-          'Personas comprometidas que hacen posible cada edición'
-      }
-    ]
-  },
-  {
-    type: 'Aliados',
-    icon: Handshake,
-    color: 'var(--cartagena-green)',
-    members: [
-      {
-        name: 'Trident Agency',
-        role: 'Producción',
-        description: 'Socio estratégico en la producción del evento'
-      },
-      {
-        name: 'AfroCaribe',
-        role: 'Cultura',
-        description: 'Promotores de la cultura afrocaribeña'
-      },
-      {
-        name: 'Tropical Sounds',
-        role: 'Audio',
-        description: 'Especialistas en sistemas de sonido'
-      }
-    ]
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const allies = [
-  { name: 'Latam Bridge', logo: '/allies/latam-bridge.png' }, // sin logo
+  { name: 'Latam Bridge', logo: '/allies/latam-bridge.png' },
   { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
   { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
   { name: 'Mincultura', logo: '/allies/mincultura.png' },
   { name: 'SBS Spanish', logo: '/allies/sbs-spanish.png' }
 ];
 
-const testimonials = [
-  {
-    name: "Glenia Zúñiga Orozco",
-    role: "Administradora de Empresas | Especialista en Gerencia de Mercadeo",
-    image: "/testimonials/glenia.jpg",
-    objectPosition: "object-center",
-    testimonial:
-      "Apasionada por nuestra música Caribe y su gastronomía. Y por qué no, de nuestro acento golpeado.",
-    favorites: "Mi champeta favorita: Paola"
-  },
-  {
-    name: "Heidy Montes Garces",
-    role: "Músico Percusionista | Maestría en Gerencia de las Artes y la Cultura",
-    image: "/testimonials/heidy.jpg",
-    objectPosition: "object-[50%_30%]",
-    testimonial:
-      "Me apasiona diseñar proyectos culturales  inclusivos que conecten con diversas comunidades, mejoren la accesibilidad a las artes y generen oportunidades para creativos y artistas en Colombia y Latinoamérica.",
-    favorites:
-      "Favoritas: El Reemplazo - Sayayin, El Tambor - Koffee El Cafetero, La Pupileta - Bazurto All Stars"
-  },
-  {
-    name: "Lilibeth María Salas Cassiani",
-    role: "Creadora de Zimbabwe Collection",
-    image: "/testimonials/lilibeth.jpg",
-    objectPosition: "object-center",
-    testimonial:
-      "Fusiono moda y cultura afro, celebrando nuestras raíces a través del diseño.",
-    favorites: "Favorita: La Voladora"
-  },
-  {
-    name: "Victor David Villadiego Alvarez",
-    role: "Contador Público | Maestría en Contabilidad",
-    image: "/testimonials/victor.jpg",
-    objectPosition: "object-center",
-    testimonial:
-      "Amante de los libros y del pensamiento antirracista y decolonial. Expreso mi identidad también a través de estilos protectores en mi cabello, llevando con orgullo mi cultura en cada espacio.",
-    favorites: "Champeta favorita: El Agite"
-  },
-  {
-    name: "Joyce Patricia Navarro Anaya",
-    role: "Abogada | DDHH y Derecho Internacional Humanitario",
-    image: "/testimonials/joyce.jpg",
-    objectPosition: "object-top",
-    testimonial:
-      "He trabajado con comunidades indígenas, campesinas y víctimas del conflicto armado en la Sierra de Santa Marta. Soy artista de teatro y promotora cultural. Para mí, la champeta es una de las expresiones culturales más valiosas de nuestra historia.",
-    favorites: "Champeta favorita: Los Trapitos al Agua - Mr Black"
-  },
-  {
-    name: "Ilia Tapias Zuniga",
-    role: "Empresaria independiente | Servicios de mensajería",
-    image: "/testimonials/ilia.jpg",
-    objectPosition: "object-center",
-    testimonial:
-      "Como afrocolombiana llevo mi cultura en cada paso. El ritmo, la alegría y la fuerza de mis raíces guían tanto mi trabajo como mi forma de vivir. Creo en el poder de la identidad y la expresión para transformar realidades.",
-    favorites: "Champeta favorita: Ochae en concierto"
-  },
-  {
-    name: "María Paula Villadiego",
-    role: "Ingeniera Industrial | Fundadora de Aloe Braids",
-    image: "/testimonials/mariapaula.jpg",
-    objectPosition: "object-[50%_40%]",
-    testimonial:
-      "Nacida en Cartagena y ahora radicada en Melbourne, combino mi profesión con mi pasión por el trenzado. Crecí rodeada de ritmo y música, por eso la champeta es parte esencial de mi identidad.",
-    favorites: "Favoritas: La Cometa - Zaider | La Moral - DJ Tremendo, Lil Silvio, Cris y Rony"
-  },
-  {
-    name: "Jenn Bonilla",
-    role: "Profesional en Gestión y Análisis de Datos | Coordinadora de Proyectos en Australia",
-    image: "/testimonials/jennbonilla.jpg",
-    objectPosition: "object-[45%_30%]",
-    testimonial:
-      "Mujer latina apasionada por la cultura, la música y el poder de las comunidades. Creo en la música como puente cultural y en la champeta como una expresión viva de identidad, resistencia y alegría caribeña. Me inspira crear espacios donde nuestra cultura se celebre con orgullo, conexión y autenticidad.",
-    favorites:
-      "Favoritas: El Gato Volador | Tú Eres Bandida | El Serrucho"
-  }
-];
-
 export default function ComunidadPage() {
+  const { t } = useLanguage();
+
+  const communityMembers = [
+    {
+      type: t('community.members.founders.title'),
+      icon: Star,
+      color: 'var(--cartagena-yellow)',
+      members: [
+        {
+          name: t('community.members.founders.community.name'),
+          role: t('community.members.founders.community.role'),
+          description: t('community.members.founders.community.description')
+        }
+      ]
+    },
+    {
+      type: t('community.members.collaborators.title'),
+      icon: Heart,
+      color: 'var(--cartagena-red)',
+      members: [
+        {
+          name: t('community.members.collaborators.artists.name'),
+          role: t('community.members.collaborators.artists.role'),
+          description: t('community.members.collaborators.artists.description')
+        },
+        {
+          name: t('community.members.collaborators.dancers.name'),
+          role: t('community.members.collaborators.dancers.role'),
+          description: t('community.members.collaborators.dancers.description')
+        },
+        {
+          name: t('community.members.collaborators.volunteers.name'),
+          role: t('community.members.collaborators.volunteers.role'),
+          description: t('community.members.collaborators.volunteers.description')
+        }
+      ]
+    },
+    {
+      type: t('community.members.allies.title'),
+      icon: Handshake,
+      color: 'var(--cartagena-green)',
+      members: [
+        {
+          name: t('community.members.allies.production.name'),
+          role: t('community.members.allies.production.role'),
+          description: t('community.members.allies.production.description')
+        },
+        {
+          name: t('community.members.allies.culture.name'),
+          role: t('community.members.allies.culture.role'),
+          description: t('community.members.allies.culture.description')
+        },
+        {
+          name: t('community.members.allies.audio.name'),
+          role: t('community.members.allies.audio.role'),
+          description: t('community.members.allies.audio.description')
+        }
+      ]
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Glenia Zúñiga Orozco",
+      role: t('community.testimonials.glenia.role'),
+      image: "/testimonials/glenia.jpg",
+      objectPosition: "object-center",
+      testimonial: t('community.testimonials.glenia.testimonial'),
+      favorites: t('community.testimonials.glenia.favorites')
+    },
+    {
+      name: "Heidy Montes Garces",
+      role: t('community.testimonials.heidy.role'),
+      image: "/testimonials/heidy.jpg",
+      objectPosition: "object-[50%_30%]",
+      testimonial: t('community.testimonials.heidy.testimonial'),
+      favorites: t('community.testimonials.heidy.favorites')
+    },
+    {
+      name: "Lilibeth María Salas Cassiani",
+      role: t('community.testimonials.lilibeth.role'),
+      image: "/testimonials/lilibeth.jpg",
+      objectPosition: "object-center",
+      testimonial: t('community.testimonials.lilibeth.testimonial'),
+      favorites: t('community.testimonials.lilibeth.favorites')
+    },
+    {
+      name: "Victor David Villadiego Alvarez",
+      role: t('community.testimonials.victor.role'),
+      image: "/testimonials/victor.jpg",
+      objectPosition: "object-center",
+      testimonial: t('community.testimonials.victor.testimonial'),
+      favorites: t('community.testimonials.victor.favorites')
+    },
+    {
+      name: "Joyce Patricia Navarro Anaya",
+      role: t('community.testimonials.joyce.role'),
+      image: "/testimonials/joyce.jpg",
+      objectPosition: "object-top",
+      testimonial: t('community.testimonials.joyce.testimonial'),
+      favorites: t('community.testimonials.joyce.favorites')
+    },
+    {
+      name: "Ilia Tapias Zuniga",
+      role: t('community.testimonials.ilia.role'),
+      image: "/testimonials/ilia.jpg",
+      objectPosition: "object-center",
+      testimonial: t('community.testimonials.ilia.testimonial'),
+      favorites: t('community.testimonials.ilia.favorites')
+    },
+    {
+      name: "María Paula Villadiego",
+      role: t('community.testimonials.mariapaula.role'),
+      image: "/testimonials/mariapaula.jpg",
+      objectPosition: "object-[50%_40%]",
+      testimonial: t('community.testimonials.mariapaula.testimonial'),
+      favorites: t('community.testimonials.mariapaula.favorites')
+    },
+    {
+      name: "Jenn Bonilla",
+      role: t('community.testimonials.jenn.role'),
+      image: "/testimonials/jennbonilla.jpg",
+      objectPosition: "object-[45%_30%]",
+      testimonial: t('community.testimonials.jenn.testimonial'),
+      favorites: t('community.testimonials.jenn.favorites')
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[var(--background)]">
 
@@ -173,14 +162,13 @@ export default function ComunidadPage() {
 
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-6">
-            Nuestra Gente
+            {t('community.hero.badge')}
           </span>
           <h1 className="font-['Titan_One'] text-4xl md:text-6xl lg:text-7xl uppercase text-white mb-6">
-            La <span className="text-[var(--cartagena-yellow)]">Comunidad</span>
+            {t('community.hero.title1')} <span className="text-[var(--cartagena-yellow)]">{t('community.hero.title2')}</span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-            Detrás de cada festival hay personas apasionadas que hacen posible la magia.
-            Conoce a quienes construyen este movimiento.
+            {t('community.hero.description')}
           </p>
         </div>
 
@@ -195,14 +183,10 @@ export default function ComunidadPage() {
           <div className="max-w-4xl mx-auto text-center">
             <Users className="w-16 h-16 mx-auto mb-6 text-[var(--cartagena-green)]" />
             <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-              Juntos Hacemos <span className="text-[var(--cartagena-red)]">Historia</span>
+              {t('community.mission.title1')} <span className="text-[var(--cartagena-red)]">{t('community.mission.title2')}</span>
             </h2>
             <p className="text-[var(--foreground)]/80 text-lg leading-relaxed">
-              Champeta AfroFest es más que un festival, es un movimiento comunitario. Nació de la
-              iniciativa de la comunidad costeña con el sueño de crear un espacio donde nuestra
-              cultura sea celebrada, preservada y compartida con el mundo. Cada persona que
-              participa, cada aliado que nos apoya, y cada asistente que vibra con nosotros,
-              es parte fundamental de esta familia.
+              {t('community.mission.paragraph')}
             </p>
           </div>
         </div>
@@ -213,10 +197,10 @@ export default function ComunidadPage() {
 
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Testimonios
+              {t('community.testimonials.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-white">
-              Lo Que Dice la <span className="text-[var(--cartagena-yellow)]">Comunidad</span>
+              {t('community.testimonials.title1')} <span className="text-[var(--cartagena-yellow)]">{t('community.testimonials.title2')}</span>
             </h2>
           </div>
 
@@ -266,10 +250,10 @@ export default function ComunidadPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Nuestra Gente
+              {t('community.members.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Quienes Hacen <span className="text-[var(--cartagena-green)]">Posible</span> el Festival
+              {t('community.members.title1')}<span className="text-[var(--cartagena-green)]">{t('community.members.title2')}</span>
             </h2>
           </div>
 
@@ -319,16 +303,16 @@ export default function ComunidadPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Aliados
+              {t('community.allies.badge')}
             </span>
             <h2
               data-testid="allies-title"
               className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
             >
-              Nuestros <span className="text-[var(--cartagena-red)]">Valecitas</span>
+              {t('community.allies.title1')} <span className="text-[var(--cartagena-red)]">{t('community.allies.title2')}</span>
             </h2>
             <p className="text-[var(--foreground)]/70 text-base md:text-lg">
-              Empresas y organizaciones que creen en nuestra <span className="text-[var(--cartagena-green)] font-bold">misión</span>
+              {t('community.allies.description1')} <span className="text-[var(--cartagena-green)] font-bold">{t('community.allies.description2')}</span>
             </p>
           </div>
 
@@ -369,12 +353,12 @@ export default function ComunidadPage() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-[var(--foreground)]/60 mb-4">¿Quieres ser aliado del festival?</p>
+            <p className="text-[var(--foreground)]/60 mb-4">{t('community.contact.question')}</p>
             <Link
               to="/#comunidad"
               className="inline-block px-6 py-3 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] hover:bg-[var(--cartagena-green)]/90 transition-colors"
             >
-              Contáctanos
+              {t('community.contact.button')}
             </Link>
           </div>
         </div>

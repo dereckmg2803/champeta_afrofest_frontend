@@ -1,30 +1,32 @@
 import { Music, Users, MapPin, Calendar } from 'lucide-react';
 import { VinylDisc, Sparkle, BrushStroke, CartagenaFlag } from './CartagenaIllustrations';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const AboutFestival = () => {
+  const { t } = useLanguage();
   const features = [
     {
       icon: Music,
-      title: 'Música en Vivo',
-      description: 'Los mejores artistas de champeta y música afro-caribeña en un solo escenario.',
+      title: t('about.features.musicTitle'),
+      description: t('about.features.musicDesc'),
       color: 'var(--cartagena-red)'
     },
     {
       icon: Users,
-      title: 'Comunidad',
-      description: 'Un espacio inclusivo para colombianos y personas de diversas nacionalidades.',
+      title: t('about.features.communityTitle'),
+      description: t('about.features.communityDesc'),
       color: 'var(--cartagena-green)'
     },
     {
       icon: MapPin,
-      title: 'Cartagena',
-      description: 'En el corazón de la ciudad más caribeña de Colombia, cuna de la champeta.',
+      title: t('about.features.cartagenaTitle'),
+      description: t('about.features.cartagenaDesc'),
       color: 'var(--caribbean-deep)'
     },
     {
       icon: Calendar,
-      title: 'Experiencia Única',
-      description: 'Música, danza, gastronomía y tradiciones caribeñas en un solo lugar.',
+      title: t('about.features.experienceTitle'),
+      description: t('about.features.experienceDesc'),
       color: 'var(--cartagena-yellow)'
     }
   ];
@@ -54,7 +56,7 @@ export const AboutFestival = () => {
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-1 bg-[var(--cartagena-green)]" />
             <span className="px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg border-2 border-[var(--foreground)]">
-              Sobre el Festival
+              {t('about.badge')}
             </span>
             <div className="w-8 h-1 bg-[var(--cartagena-red)]" />
           </div>
@@ -62,14 +64,13 @@ export const AboutFestival = () => {
             data-testid="about-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-6"
           >
-            ¡La Champeta se <span className="text-[var(--cartagena-red)]">Vive</span>!
+            {t('about.title')}<span className="text-[var(--cartagena-red)]">{t('about.highlight')}</span>!
           </h2>
           <p
             data-testid="about-description"
             className="max-w-3xl mx-auto text-base md:text-lg text-[var(--foreground)]/80 leading-relaxed"
           >
-            Champeta AfroFest surge como una iniciativa para celebrar la cultura en las fiestas de la independencia, y ha evolucionado para convertirse en un espacio intercultural donde personas de diversas nacionalidades pueden experimentar la riqueza de la champeta, la música, la danza, la gastronomía y las tradiciones caribeñas.
-          </p>
+            {t('about.description')}          </p>
         </div>
 
         {/* Festival Video Feature */}
@@ -97,8 +98,7 @@ export const AboutFestival = () => {
             </div>
 
             <p className="text-center mt-6 text-[var(--foreground)]/70 text-sm md:text-base leading-relaxed">
-              Así se vivió la energía, el ritmo y la fuerza cultural de Champeta AfroFest.
-              Una celebración donde la música une corazones y la champeta se convierte en identidad.
+              {t('about.videoDescription')}
             </p>
 
           </div>
@@ -140,7 +140,7 @@ export const AboutFestival = () => {
             data-testid="about-cta"
             className="inline-block px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl hover:bg-[var(--cartagena-red)]/90 transition-colors"
           >
-            Nuestra Historia
+            {t('about.cta')}
           </a>
         </div>
       </div>

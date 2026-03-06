@@ -1,105 +1,89 @@
 import { Link } from 'react-router-dom';
 import { Music, GraduationCap, Utensils, Users, Camera, Palette, Sparkles, Clock } from 'lucide-react';
 import { VinylDisc, Sparkle, DancingCouple, MusicNote } from '../components/CartagenaIllustrations';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const experiences = [
-  {
-    icon: Music,
-    title: 'Música en Vivo',
-    description: 'Disfruta de los mejores artistas de champeta en escenarios de primer nivel. Desde leyendas hasta nuevos talentos, todos unidos por el ritmo.',
-    details: [
-      'Escenario principal con sistema de sonido profesional',
-      'Presentaciones de artistas nacionales e internacionales',
-      'Sets de DJs especializados en champeta',
-      'Música continua durante todo el evento'
-    ],
-    color: 'var(--cartagena-red)',
-    image: '/MusicaPic.jpg'
-  },
-  {
-    icon: GraduationCap,
-    title: 'Talleres de Baile',
-    description: 'Aprende los pasos más icónicos de la champeta con bailarines profesionales. Desde lo básico hasta movimientos avanzados.',
-    details: [
-      'Clases para todos los niveles',
-      'Instructores profesionales de Cartagena',
-      'Aprende el perreo champetúo',
-      'Sesiones de práctica libre'
-    ],
-    color: 'var(--cartagena-yellow)',
-    image: '/TalleresPic.jpg'
-  },
-  {
-    icon: Utensils,
-    title: 'Gastronomía Caribeña',
-    description: 'Saborea los platos más tradicionales del Caribe colombiano. Desde ceviches hasta frituras típicas.',
-    details: [
-      'Food trucks con comida típica',
-      'Bebidas tropicales y refrescantes',
-      'Opciones vegetarianas disponibles',
-      'Postres tradicionales'
-    ],
-    color: 'var(--cartagena-green)',
-    image: '/GastronomiaPic.jpg'
-  },
-  {
-    icon: Users,
-    title: 'Zona de Comunidad',
-    description: 'Conecta con otros amantes de la champeta y la cultura afrocaribeña. Un espacio para compartir y crear lazos.',
-    details: [
-      'Networking cultural',
-      'Intercambio de experiencias',
-      'Activaciones de marca',
-      'Photo booth temático'
-    ],
-    color: 'var(--caribbean-deep)',
-    image: '/ComunidadPic.jpg'
-  }
-];
-
-const workshops = [
-  {
-    title: 'Champeta Básica',
-    duration: '45 min',
-    level: 'Principiante',
-    description: 'Aprende los pasos fundamentales del baile champeta',
-    color: 'var(--cartagena-green)'
-  },
-  {
-    title: 'Perreo Champetúo',
-    duration: '1 hora',
-    level: 'Intermedio',
-    description: 'Domina los movimientos de cadera característicos',
-    color: 'var(--cartagena-yellow)'
-  },
-  {
-    title: 'Coreografía Grupal',
-    duration: '1.5 horas',
-    level: 'Todos los niveles',
-    description: 'Aprende una coreografía completa para bailar en grupo',
-    color: 'var(--cartagena-red)'
-  },
-  {
-    title: 'Historia del Baile',
-    duration: '30 min',
-    level: 'Todos los niveles',
-    description: 'Conoce el origen y evolución del baile champeta',
-    color: 'var(--caribbean-deep)'
-  }
-];
-
-const schedule = [
-  { time: '12:00 PM', activity: 'Apertura de puertas', type: 'general' },
-  { time: '1:00 PM', activity: 'Taller de Champeta Básica', type: 'workshop' },
-  { time: '2:30 PM', activity: 'Primer set de DJ', type: 'music' },
-  { time: '4:00 PM', activity: 'Taller de Perreo Champetúo', type: 'workshop' },
-  { time: '5:30 PM', activity: 'Artista invitado #1', type: 'music' },
-  { time: '7:00 PM', activity: 'Coreografía Grupal', type: 'workshop' },
-  { time: '8:30 PM', activity: 'Show principal', type: 'music' },
-  { time: '11:00 PM', activity: 'Cierre con DJ set', type: 'music' }
-];
 
 export default function ExperienciasPage() {
+  const { t } = useLanguage();
+
+  const experiences = [
+    {
+      icon: Music,
+      title: t('experiences.music.title'),
+      description: t('experiences.music.description'),
+      details: t("experiences.music.details", { returnObjects: true }),
+      color: 'var(--cartagena-red)',
+      image: '/MusicaPic.jpg'
+    },
+    {
+      icon: GraduationCap,
+      title: t('experiences.dance.title'),
+      description: t('experiences.dance.description'),
+      details: t("experiences.dance.details", { returnObjects: true }),
+      color: 'var(--cartagena-yellow)',
+      image: '/TalleresPic.jpg'
+    },
+    {
+      icon: Utensils,
+      title: t('experiences.food.title'),
+      description: t('experiences.food.description'),
+      details: t("experiences.food.details", { returnObjects: true }),
+      color: 'var(--cartagena-green)',
+      image: '/GastronomiaPic.jpg'
+    },
+    {
+      icon: Users,
+      title: t('experiences.community.title'),
+      description: t('experiences.community.description'),
+      details: t("experiences.community.details", { returnObjects: true }),
+      color: 'var(--caribbean-deep)',
+      image: '/ComunidadPic.jpg'
+    }
+  ];
+
+  const workshops = [
+    {
+      title: t('experiences.workshops.basic.title'),
+      duration: '45 min',
+      level: t('experiences.workshops.basic.level'),
+      description: t('experiences.workshops.basic.description'),
+      color: 'var(--cartagena-green)'
+    },
+    {
+      title: t('experiences.workshops.perreo.title'),
+      duration: '1 hora',
+      level: t('experiences.workshops.perreo.level'),
+      description: t('experiences.workshops.perreo.description'),
+      color: 'var(--cartagena-yellow)'
+    },
+    {
+      title: t('experiences.workshops.choreography.title'),
+      duration: '1.5 horas',
+      level: t('experiences.workshops.choreography.level'),
+      description: t('experiences.workshops.choreography.description'),
+      color: 'var(--cartagena-red)'
+    },
+    {
+      title: t('experiences.workshops.history.title'),
+      duration: '30 min',
+      level: t('experiences.workshops.history.level'),
+      description: t('experiences.workshops.history.description'),
+      color: 'var(--caribbean-deep)'
+    }
+  ];
+
+  const schedule = [
+    { time: '12:00 PM', activity: t('experiences.schedule.open'), type: 'general' },
+    { time: '1:00 PM', activity: t('experiences.schedule.basicWorkshop'), type: 'workshop' },
+    { time: '2:30 PM', activity: t('experiences.schedule.djSet'), type: 'music' },
+    { time: '4:00 PM', activity: t('experiences.schedule.perreoWorkshop'), type: 'workshop' },
+    { time: '5:30 PM', activity: t('experiences.schedule.guestArtist'), type: 'music' },
+    { time: '7:00 PM', activity: t('experiences.schedule.groupChoreo'), type: 'workshop' },
+    { time: '8:30 PM', activity: t('experiences.schedule.mainShow'), type: 'music' },
+    { time: '11:00 PM', activity: t('experiences.schedule.closing'), type: 'music' }
+  ];
+
   return (
     <div className="min-h-screen bg-[var(--background)]">
       {/* Hero Section */}
@@ -124,14 +108,13 @@ export default function ExperienciasPage() {
 
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--caribbean-deep)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-6">
-            Actividades
+            {t('experiences.hero.badge')}
           </span>
           <h1 className="font-['Titan_One'] text-4xl md:text-6xl lg:text-7xl uppercase text-white mb-6">
-            Las <span className="text-[var(--cartagena-yellow)]">Experiencias</span>
+            {t('experiences.hero.title1')} <span className="text-[var(--cartagena-yellow)]">{t('experiences.hero.title2')}</span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-            Más que un concierto, Champeta AfroFest es una experiencia cultural completa.
-            Música, baile, gastronomía y comunidad en un solo lugar.
+            {t('experiences.hero.description')}
           </p>
         </div>
 
@@ -146,10 +129,10 @@ export default function ExperienciasPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Qué Encontrarás
+              {t('experiences.main.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Vive el <span className="text-[var(--cartagena-green)]">Festival</span>
+              {t('experiences.main.title1')} <span className="text-[var(--cartagena-green)]"> {t('experiences.main.title2')}</span>
             </h2>
           </div>
 
@@ -207,13 +190,13 @@ export default function ExperienciasPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Aprende
+              {t('experiences.workshops.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Talleres de <span className="text-[var(--cartagena-red)]">Baile</span>
+              {t('experiences.workshops.title1')} <span className="text-[var(--cartagena-red)]">{t('experiences.workshops.title2')}</span>
             </h2>
             <p className="text-[var(--foreground)]/70 mt-4 max-w-2xl mx-auto">
-              Aprende a bailar champeta con los mejores instructores de Cartagena
+              {t('experiences.workshops.subtitle')}
             </p>
           </div>
 
@@ -258,13 +241,13 @@ export default function ExperienciasPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Agenda
+              {t('experiences.schedule.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-white">
-              Programación del <span className="text-[var(--cartagena-yellow)]">Día</span>
+              {t('experiences.schedule.title1')} <span className="text-[var(--cartagena-yellow)]">{t('experiences.schedule.title2')}</span>
             </h2>
             <p className="text-white/60 mt-4">
-              Un día completo de actividades para disfrutar
+              {t('experiences.schedule.subtitle')}
             </p>
           </div>
 
@@ -302,7 +285,7 @@ export default function ExperienciasPage() {
 
           <div className="text-center mt-12">
             <p className="text-white/60 text-sm">
-              * La programación puede variar según la edición del festival
+              {t('experiences.schedule.note')}
             </p>
           </div>
         </div>
@@ -313,23 +296,23 @@ export default function ExperienciasPage() {
         <div className="container-festival text-center">
           <Sparkles className="w-12 h-12 mx-auto mb-4 text-[var(--cartagena-yellow)]" />
           <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-            ¿Listo para <span className="text-[var(--cartagena-red)]">Vibrar</span>?
+            {t('experiences.cta.title1')} <span className="text-[var(--cartagena-red)]">{t('experiences.cta.title2')}</span>?
           </h2>
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
-            No te pierdas la próxima edición de Champeta AfroFest
+            {t('experiences.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/#entradas"
               className="inline-block px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-red)]/90 transition-colors"
             >
-              Comprar Entradas
+              {t('experiences.cta.tickets')}
             </Link>
             <Link
               to="/#comunidad"
               className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
             >
-              Unirme a la Comunidad
+              {t('experiences.cta.community')}
             </Link>
           </div>
         </div>

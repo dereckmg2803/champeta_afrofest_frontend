@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { AboutFestival } from "./components/AboutFestival";
@@ -11,6 +12,7 @@ import { Community } from "./components/Community";
 import { Allies } from "./components/Allies";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { SpotifyPlayer } from "./components/SpotifyPlayer";
 import { SubpageLayout } from "./components/SubpageLayout";
 import FestivalPage from "./pages/FestivalPage";
 import ChampetaPage from "./pages/ChampetaPage";
@@ -62,24 +64,29 @@ const LandingPage = () => {
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+    <LanguageProvider>
+      <div className="App">
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
 
-          {/* Landing Page */}
-          <Route path="/" element={<LandingPage />} />
+            {/* Landing Page */}
+            <Route path="/" element={<LandingPage />} />
 
-          {/* Subpages with shared layout */}
-          <Route element={<SubpageLayout />}>
-            <Route path="/festival" element={<FestivalPage />} />
-            <Route path="/champeta" element={<ChampetaPage />} />
-            <Route path="/comunidad" element={<ComunidadPage />} />
-            <Route path="/experiencias" element={<ExperienciasPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+            {/* Subpages with shared layout */}
+            <Route element={<SubpageLayout />}>
+              <Route path="/festival" element={<FestivalPage />} />
+              <Route path="/champeta" element={<ChampetaPage />} />
+              <Route path="/comunidad" element={<ComunidadPage />} />
+              <Route path="/experiencias" element={<ExperienciasPage />} />
+            </Route>
+          </Routes>
+
+          {/* Floating Spotify Player - available on all pages */}
+          <SpotifyPlayer />
+        </BrowserRouter>
+      </div>
+    </LanguageProvider>
   );
 }
 

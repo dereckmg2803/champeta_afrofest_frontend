@@ -1,54 +1,56 @@
 import { Check, Star, Crown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Tickets = () => {
+  const { t } = useLanguage();
   const ticketTypes = [
     {
-      name: 'Early Bird',
+      name: t('tickets.types.earlyBird'),
       price: '$49',
       color: 'var(--cartagena-green)',
       icon: Check,
       features: [
-        'Acceso general al festival',
-        'Entrada a todos los escenarios',
-        'Mapa del evento',
-        'Kit de bienvenida digital'
+        t('tickets.features.generalAccess'),
+        t('tickets.features.allStages'),
+        t('tickets.features.eventMap'),
+        t('tickets.features.welcomeKit')
       ],
       popular: false
     },
     {
-      name: 'General',
+      name: t('tickets.types.general'),
       price: '$69',
       color: 'var(--cartagena-yellow)',
       icon: Star,
       features: [
-        'Acceso general al festival',
-        'Entrada a todos los escenarios',
-        'Zona de comidas incluida',
-        'Merchandise exclusivo',
-        'Meet & Greet (sorteo)'
+        t('tickets.features.generalAccess'),
+        t('tickets.features.allStages'),
+        t('tickets.features.foodZone'),
+        t('tickets.features.exclusiveMerch'),
+        t('tickets.features.meetGreetRaffle')
       ],
       popular: true
     },
     {
-      name: 'VIP Imperio',
+      name: t('tickets.types.vip'),
       price: '$119',
       color: 'var(--cartagena-red)',
       icon: Crown,
       features: [
-        'Acceso VIP a todas las áreas',
-        'Zona preferencial en escenarios',
-        'Barra libre premium',
-        'Meet & Greet garantizado',
-        'Merchandise VIP exclusivo',
-        'Acceso backstage'
+        t('tickets.features.vipAccess'),
+        t('tickets.features.priorityZone'),
+        t('tickets.features.premiumOpenBar'),
+        t('tickets.features.guaranteedMeet'),
+        t('tickets.features.vipMerch'),
+        t('tickets.features.backstage')
       ],
       popular: false
     }
   ];
 
   return (
-    <section 
-      id="entradas" 
+    <section
+      id="entradas"
       data-testid="tickets-section"
       className="py-20 md:py-32 relative overflow-hidden"
       style={{ backgroundColor: 'var(--muted)' }}
@@ -65,16 +67,16 @@ export const Tickets = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--foreground)]">
-            Entradas
+            {t('tickets.badge')}
           </span>
-          <h2 
+          <h2
             data-testid="tickets-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            Cultura & <span className="text-[var(--cartagena-green)]">Gastronomía</span>
+            {t('tickets.title')}<span className="text-[var(--cartagena-green)]">{t('tickets.highlight')}</span>
           </h2>
           <p className="text-[var(--foreground)]/70 text-base md:text-lg">
-            ¡Sabor Caribeño Único!
+            {t('tickets.subtitle')}
           </p>
         </div>
 
@@ -84,20 +86,19 @@ export const Tickets = () => {
             <div
               key={ticket.name}
               data-testid={`ticket-card-${index}`}
-              className={`relative overflow-hidden border-2 border-[var(--foreground)] rounded-2xl bg-white animate-fade-in-up ${
-                ticket.popular ? 'pico-shadow md:scale-105 md:-translate-y-2' : 'pico-shadow-sm'
-              }`}
+              className={`relative overflow-hidden border-2 border-[var(--foreground)] rounded-2xl bg-white animate-fade-in-up ${ticket.popular ? 'pico-shadow md:scale-105 md:-translate-y-2' : 'pico-shadow-sm'
+                }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Popular badge */}
               {ticket.popular && (
                 <div className="absolute -top-1 -right-1 px-4 py-1 bg-[var(--foreground)] text-white text-xs font-bold uppercase rounded-bl-xl">
-                  Popular
+                  {t('tickets.popular')}
                 </div>
               )}
 
               {/* Header */}
-              <div 
+              <div
                 className="p-6 text-center"
                 style={{ backgroundColor: ticket.color }}
               >
@@ -117,8 +118,8 @@ export const Tickets = () => {
                 <ul className="space-y-3">
                   {ticket.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-start gap-3">
-                      <Check 
-                        className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                      <Check
+                        className="w-5 h-5 flex-shrink-0 mt-0.5"
                         style={{ color: ticket.color }}
                       />
                       <span className="text-sm text-[var(--foreground)]/80">{feature}</span>
@@ -130,12 +131,12 @@ export const Tickets = () => {
                 <button
                   data-testid={`ticket-buy-${index}`}
                   className="w-full mt-6 px-6 py-4 font-bold uppercase tracking-wider border-2 border-[var(--foreground)] rounded-xl transition-colors"
-                  style={{ 
+                  style={{
                     backgroundColor: ticket.color,
                     color: 'var(--foreground)'
                   }}
                 >
-                  Comprar Ahora
+                  {t('tickets.buy')}
                 </button>
               </div>
             </div>
@@ -144,7 +145,7 @@ export const Tickets = () => {
 
         {/* Note */}
         <p className="text-center mt-8 text-sm text-[var(--foreground)]/60">
-          * Los precios pueden variar. Consulta términos y condiciones.
+          {t('tickets.note')}
         </p>
       </div>
     </section>

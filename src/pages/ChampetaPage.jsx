@@ -1,51 +1,76 @@
 import { Link } from 'react-router-dom';
 import { Music, Disc3, Users, Radio, Globe, Heart } from 'lucide-react';
 import { VinylDisc, Sparkle, DancingCouple, MusicNote } from '../components/CartagenaIllustrations';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const champetaElements = [
-  {
-    icon: Disc3,
-    title: 'Ritmo Africano',
-    description: 'La champeta tiene sus raíces en los ritmos africanos traídos por los esclavos al Caribe colombiano. El soukous del Congo, el highlife de Ghana y el jùjú de Nigeria son algunas de sus influencias.',
-    color: 'var(--cartagena-green)'
-  },
-  {
-    icon: Radio,
-    title: 'El Picó',
-    description: 'Los picós son enormes sistemas de sonido que se convirtieron en el símbolo de la champeta. Cada picó tiene su nombre, su DJ y sus seguidores fieles. Son verdaderas catedrales del sonido.',
-    color: 'var(--cartagena-yellow)'
-  },
-  {
-    icon: Users,
-    title: 'Baile Perreo',
-    description: 'El baile de la champeta es energético, sensual y lleno de movimientos rápidos de cadera. Se baila en pareja con movimientos pegados que expresan la conexión entre los bailarines.',
-    color: 'var(--cartagena-red)'
-  },
-  {
-    icon: Globe,
-    title: 'Identidad Cartagenera',
-    description: 'La champeta nació en los barrios populares de Cartagena como expresión de resistencia y orgullo afrodescendiente. Hoy es patrimonio cultural de la ciudad.',
-    color: 'var(--caribbean-deep)'
-  }
-];
 
-const timeline = [
-  { year: '1970s', event: 'Llegan los primeros discos africanos a Cartagena a través de marineros' },
-  { year: '1980s', event: 'Nacen los primeros picós y DJs comienzan a mezclar ritmos africanos con sonidos locales' },
-  { year: '1990s', event: 'La champeta se consolida como género propio con artistas como El Afinaíto y Louis Towers' },
-  { year: '2000s', event: 'Mr. Black, Kevin Florez y nuevos artistas llevan la champeta a nivel nacional' },
-  { year: '2010s', event: 'La champeta se fusiona con reggaetón y urbano, alcanzando audiencias internacionales' },
-  { year: '2020s', event: 'Reconocimiento como patrimonio cultural y festivales como Champeta AfroFest celebran su legado' }
-];
 
-const artists = [
-  { name: 'Louis Towers', era: 'Pionero', description: 'Uno de los padres de la champeta criolla' },
-  { name: 'Mr. Black', era: 'Leyenda', description: 'El rey de la champeta moderna' },
-  { name: 'Kevin Florez', era: 'Nueva Generación', description: 'Fusión de champeta con urbano' },
-  { name: 'Zaider', era: 'Actual', description: 'Representante del nuevo sonido' }
-];
+
+
 
 export default function ChampetaPage() {
+  const { t } = useLanguage();
+
+  const artists = (t) => [
+    {
+      name: "Louis Towers",
+      era: t("champeta.artists.louis.era"),
+      description: t("champeta.artists.louis.description")
+    },
+    {
+      name: "Mr. Black",
+      era: t("champeta.artists.mrblack.era"),
+      description: t("champeta.artists.mrblack.description")
+    },
+    {
+      name: "Kevin Florez",
+      era: t("champeta.artists.kevin.era"),
+      description: t("champeta.artists.kevin.description")
+    },
+    {
+      name: "Zaider",
+      era: t("champeta.artists.zaider.era"),
+      description: t("champeta.artists.zaider.description")
+    }
+  ];
+  const artistsm = artists(t);
+
+  const timeline = (t) => [
+    { year: '1970s', event: t("champeta.timeline.seventies") },
+    { year: '1980s', event: t("champeta.timeline.eighties") },
+    { year: '1990s', event: t("champeta.timeline.nineties") },
+    { year: '2000s', event: t("champeta.timeline.twoThousands") },
+    { year: '2010s', event: t("champeta.timeline.twentyTens") },
+    { year: '2020s', event: t("champeta.timeline.twentyTwenties") }
+  ];
+  const timelines = timeline(t);
+  const champetaElements = (t) => [
+    {
+      icon: Disc3,
+      title: t("champeta.elements.africanRhythm.title"),
+      description: t("champeta.elements.africanRhythm.description"),
+      color: 'var(--cartagena-green)'
+    },
+    {
+      icon: Radio,
+      title: t("champeta.elements.pico.title"),
+      description: t("champeta.elements.pico.description"),
+      color: 'var(--cartagena-yellow)'
+    },
+    {
+      icon: Users,
+      title: t("champeta.elements.dance.title"),
+      description: t("champeta.elements.dance.description"),
+      color: 'var(--cartagena-red)'
+    },
+    {
+      icon: Globe,
+      title: t("champeta.elements.identity.title"),
+      description: t("champeta.elements.identity.description"),
+      color: 'var(--caribbean-deep)'
+    }
+  ];
+  const elements = champetaElements(t);
   return (
     <div className="min-h-screen bg-[var(--background)]">
       {/* Hero Section */}
@@ -71,13 +96,15 @@ export default function ChampetaPage() {
 
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-6">
-            Cultura
+            <span>
+              {t("champeta.hero.badge")}
+            </span>
           </span>
           <h1 className="font-['Titan_One'] text-4xl md:text-6xl lg:text-7xl uppercase text-white mb-6">
-            ¿Qué es la <span className="text-[var(--cartagena-yellow)]">Champeta</span>?
+            {t("champeta.hero.title1")}  <span className="text-[var(--cartagena-yellow)]">{t("champeta.hero.title2")} </span>?
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto italic">
-            "Amo este ritmo porque lo llevo en la sangre"
+            {t("champeta.hero.quote")}
           </p>
         </div>
 
@@ -93,25 +120,21 @@ export default function ChampetaPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-                Definición
+                {t("champeta.definition.badge")}
               </span>
               <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-                El Ritmo del <span className="text-[var(--cartagena-red)]">Caribe</span>
+                {t("champeta.definition.title1")} <span className="text-[var(--cartagena-red)]">{t("champeta.definition.title2")}</span>
               </h2>
               <div className="space-y-4 text-[var(--foreground)]/80">
                 <p>
-                  La <strong>champeta</strong> es un género musical de origen afro-caribeño nacido en
-                  Cartagena de Indias, Colombia. Surgió en los barrios populares de la ciudad como
-                  una fusión de ritmos africanos con sonidos del Caribe.
+                  {t("champeta.definition.paragraph11")} <strong>{t("champeta.definition.paragraph12")} </strong> {t("champeta.definition.paragraph13")}
                 </p>
                 <p>
-                  Su nombre proviene del cuchillo "champeta", una herramienta usada por pescadores
-                  y vendedores de los mercados populares, reflejando su origen humilde y callejero.
+                  {t("champeta.definition.paragraph2")}
                 </p>
                 <p>
-                  Más que un género musical, la champeta es una <strong>forma de vida</strong>,
-                  una expresión de identidad afrodescendiente y un símbolo de resistencia cultural
-                  que ha trascendido fronteras.
+                  {t("champeta.definition.paragraph31")} <strong>{t("champeta.definition.paragraph32")}</strong>
+                  {t("champeta.definition.paragraph33")}
                 </p>
               </div>
             </div>
@@ -136,15 +159,15 @@ export default function ChampetaPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Elementos
+              {t("champeta.elements.badge")}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Los Pilares de la <span className="text-[var(--cartagena-green)]">Champeta</span>
+              {t("champeta.elements.title1")} <span className="text-[var(--cartagena-green)]">{t("champeta.elements.title2")}</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {champetaElements.map((element, index) => (
+            {elements.map((element, index) => (
               <div
                 key={index}
                 className="p-8 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow"
@@ -172,15 +195,15 @@ export default function ChampetaPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Historia
+              {t("champeta.timeline.badge")}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-white">
-              Línea del <span className="text-[var(--cartagena-red)]">Tiempo</span>
+              {t("champeta.timeline.title1")}  <span className="text-[var(--cartagena-red)]"> {t("champeta.timeline.title2")}  </span>
             </h2>
           </div>
 
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
+            {timelines.map((item, index) => (
               <div key={index} className="flex gap-6 mb-8 last:mb-0">
                 <div className="flex flex-col items-center">
                   <div
@@ -213,15 +236,15 @@ export default function ChampetaPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Artistas
+              {t("champeta.artists.badge")}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Leyendas de la <span className="text-[var(--cartagena-yellow)]">Champeta</span>
+              {t("champeta.artists.title1")}  <span className="text-[var(--cartagena-yellow)]">{t("champeta.artists.title2")} </span>
             </h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {artists.map((artist, index) => (
+            {artistsm.map((artist, index) => (
               <div
                 key={index}
                 className="text-center p-6 bg-white rounded-2xl border-2 border-[var(--foreground)] pico-shadow-sm"
@@ -262,16 +285,16 @@ export default function ChampetaPage() {
         <div className="container-festival text-center">
           <Heart className="w-12 h-12 mx-auto mb-4 text-[var(--cartagena-red)]" />
           <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-            Vive la <span className="text-[var(--cartagena-green)]">Champeta</span> en Persona
+            {t("champeta.cta.title1")}  <span className="text-[var(--cartagena-green)]">{t("champeta.cta.title2")} </span> {t("champeta.cta.title3")}
           </h2>
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
-            Experimenta la energía, el ritmo y la cultura en Champeta AfroFest
+            {t("champeta.cta.subtitle")}
           </p>
           <Link
             to="/"
             className="inline-block px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-red)]/90 transition-colors"
           >
-            Ver Próximo Festival
+            {t("champeta.cta.button")}
           </Link>
         </div>
       </section>

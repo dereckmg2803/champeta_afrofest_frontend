@@ -1,12 +1,13 @@
 import { Instagram, Facebook, Youtube, Twitter, Music } from 'lucide-react';
-
+import { useLanguage } from '../contexts/LanguageContext';
 export const Footer = () => {
+  const { t } = useLanguage();
   const navLinks = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#lineup', label: 'Lineup' },
-    { href: '#experiencias', label: 'Experiencias' },
-    { href: '#cultura', label: 'Cultura' },
-    { href: '#entradas', label: 'Entradas' }
+    { href: '#inicio', label: t('footer.nav.inicio') },
+    { href: '#lineup', label: t('footer.nav.lineup') },
+    { href: '#experiencias', label: t('footer.nav.experiencias') },
+    { href: '#cultura', label: t('footer.nav.cultura') },
+    { href: '#entradas', label: t('footer.nav.entradas') }
   ];
 
   const socialLinks = [
@@ -81,11 +82,11 @@ export const Footer = () => {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
-          <p>© 2025 Champeta AfroFest. Todos los derechos reservados.</p>
+          <p>{t('footer.copyright')}</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Términos y Condiciones</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.terms')}</a>
             <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy')}</a>
           </div>
         </div>
       </div>

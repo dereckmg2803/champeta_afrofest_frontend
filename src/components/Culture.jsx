@@ -1,43 +1,44 @@
 import { Disc3, Music2, Flag, Speaker } from 'lucide-react';
 import { VinylDisc, Sparkle, DancingCouple, WavePattern } from './CartagenaIllustrations';
-
+import { useLanguage } from '../contexts/LanguageContext';
 export const Culture = () => {
+  const { t } = useLanguage();
   const cultureItems = [
     {
       icon: Disc3,
-      title: 'Ritmo Afro-Caribeño',
-      description: 'Ritmos y percusiones africanas fusionadas con sonidos caribeños que hacen vibrar el corazón.',
+      title: t('culture.items.rhythmTitle'),
+      description: t('culture.items.rhythmDesc'),
       color: 'var(--cartagena-green)'
     },
     {
       icon: Music2,
-      title: 'Baile & Energía',
-      description: 'Con pasos únicos y movimientos que expresan alegría, resistencia y libertad.',
+      title: t('culture.items.danceTitle'),
+      description: t('culture.items.danceDesc'),
       color: 'var(--cartagena-yellow)'
     },
     {
       icon: Flag,
-      title: 'Cultura Popular',
-      description: 'Comunidades que mantienen viva la tradición a través de generaciones en Cartagena.',
+      title: t('culture.items.cultureTitle'),
+      description: t('culture.items.cultureDesc'),
       color: 'var(--cartagena-red)'
     },
     {
       icon: Speaker,
-      title: 'Instrumentos & Sonido',
-      description: 'Instrumentos como las congas, timbales y el característico sonido del picó.',
+      title: t('culture.items.instrumentsTitle'),
+      description: t('culture.items.instrumentsDesc'),
       color: 'var(--caribbean-deep)'
     }
   ];
 
   return (
-    <section 
-      id="cultura" 
+    <section
+      id="cultura"
       data-testid="culture-section"
       className="py-20 md:py-32 relative overflow-hidden"
       style={{ backgroundColor: 'var(--dark-section)' }}
     >
       {/* Background mural texture */}
-      <div 
+      <div
         className="absolute inset-0 opacity-15"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1626041293558-21fd007149d6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHx2aWJyYW50JTIwY2FydGFnZW5hJTIwY29sb21iaWElMjBzdHJlZXQlMjBtdXJhbCUyMGFydCUyMGNvbG9yZnVsfGVufDB8fHx8MTc3MTI2NjcxMHww&ixlib=rb-4.1.0&q=85')`,
@@ -68,20 +69,18 @@ export const Culture = () => {
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-1 bg-[var(--cartagena-green)]" />
             <span className="px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg border-2 border-[var(--cartagena-yellow)]">
-              Cultura
+              {t('culture.badge')}
             </span>
             <div className="w-8 h-1 bg-[var(--cartagena-yellow)]" />
           </div>
-          <h2 
+          <h2
             data-testid="culture-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-white mb-6"
           >
-            ¿Qué es la <span className="text-[var(--cartagena-yellow)]">Champeta</span>?
+            {t('culture.title')}<span className="text-[var(--cartagena-yellow)]">{t('culture.highlight')}</span>?
           </h2>
           <p className="text-white/80 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            "Amo este ritmo porque lo llevo en la sangre" - La champeta es un género musical de origen 
-            afro-caribeño nacido en Cartagena, Colombia. Mezcla ritmos africanos con sonidos del Caribe 
-            creando un estilo energético y único de baile y música que nace del corazón del pueblo.
+            {t('culture.description')}
           </p>
         </div>
 
@@ -92,7 +91,7 @@ export const Culture = () => {
               key={item.title}
               data-testid={`culture-card-${index}`}
               className="group relative overflow-hidden rounded-2xl animate-fade-in-up border-2"
-              style={{ 
+              style={{
                 animationDelay: `${index * 0.15}s`,
                 background: 'rgba(13, 13, 13, 0.9)',
                 backdropFilter: 'blur(10px)',
@@ -100,7 +99,7 @@ export const Culture = () => {
               }}
             >
               {/* Header with icon */}
-              <div 
+              <div
                 className="p-4 flex items-center gap-3"
                 style={{ backgroundColor: item.color }}
               >
@@ -120,7 +119,7 @@ export const Culture = () => {
               </div>
 
               {/* Decorative corner */}
-              <div 
+              <div
                 className="absolute -bottom-2 -right-2 w-8 h-8 opacity-30 rounded-full"
                 style={{ backgroundColor: item.color }}
               />

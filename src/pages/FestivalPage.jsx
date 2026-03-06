@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Calendar, Users, Star, Trophy } from 'lucide-react';
 import { VinylDisc, Sparkle, DancingCouple } from '../components/CartagenaIllustrations';
-
+import { useLanguage } from '../contexts/LanguageContext';
 // Galería de fotos del festival (placeholders - reemplazar con fotos reales)
 const galleryImages = [
   {
@@ -47,15 +47,19 @@ const editions = [
   }
 ];
 
-const stats = [
-  { icon: Users, value: '500+', label: 'Asistentes', color: 'var(--cartagena-green)' },
-  { icon: Star, value: '8', label: 'Artistas', color: 'var(--cartagena-yellow)' },
-  { icon: Calendar, value: '2', label: 'Ediciónes', color: 'var(--cartagena-red)' },
-  { icon: Trophy, value: '100%', label: 'Satisfacción', color: 'var(--caribbean-deep)' }
-];
+
 
 export default function FestivalPage() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { icon: Users, value: '500+', label: t('festival.stats.attendees'), color: 'var(--cartagena-green)' },
+    { icon: Star, value: '8', label: t('festival.stats.artists'), color: 'var(--cartagena-yellow)' },
+    { icon: Calendar, value: '2', label: t('festival.stats.editions'), color: 'var(--cartagena-red)' },
+    { icon: Trophy, value: '100%', label: t('festival.stats.satisfaction'), color: 'var(--caribbean-deep)' }
+  ];
   return (
+
     <div className="min-h-screen bg-[var(--background)]">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden" style={{ backgroundColor: 'var(--dark-section)' }}>
@@ -75,13 +79,13 @@ export default function FestivalPage() {
 
         <div className="container-festival relative z-10 text-center">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-6 border-2 border-[var(--cartagena-yellow)]">
-            Nuestra Historia
+            {t('festival.hero.badge')}
           </span>
           <h1 className="font-['Titan_One'] text-4xl md:text-6xl lg:text-7xl uppercase text-white mb-6">
-            El <span className="text-[var(--cartagena-yellow)]">Festival</span>
+            {t('festival.hero.title1')}  <span className="text-[var(--cartagena-yellow)]">{t('festival.hero.title2')} </span>
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto">
-            El evento busca visibilizar, fortalecer y celebrar la champeta como expresión artística y patrimonial del Caribe colombiano y está orientado a la promoción de la diversidad cultural y la inclusión social.
+            {t('festival.hero.description')}
           </p>
         </div>
 
@@ -124,26 +128,20 @@ export default function FestivalPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block px-4 py-2 bg-[var(--cartagena-green)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-                Origen
+                {t('festival.origin.badge')}
               </span>
               <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-                ¿Cómo <span className="text-[var(--cartagena-red)]">Nació</span>?
+                {t('festival.origin.title1')} <span className="text-[var(--cartagena-red)]">{t('festival.origin.title2')}</span>?
               </h2>
               <div className="space-y-4 text-[var(--foreground)]/80">
                 <p>
-                  Champeta AfroFest surge como una idea de la comunidad costeña residente en la ciudad,
-                  con el propósito de crear un espacio inclusivo donde tanto colombianos como personas
-                  de diversas nacionalidades pudieran experimentar la riqueza de la cultura alrededor
-                  de la champeta.
+                  {t('festival.origin.p1')}
                 </p>
                 <p>
-                  La música, la danza, la gastronomía y la diversidad de tradiciones caribeñas se
-                  unen en un solo lugar para celebrar nuestra herencia africana y el espíritu festivo
-                  de Cartagena de Indias.
+                  {t('festival.origin.p2')}
                 </p>
                 <p>
-                  El 15 de noviembre de 2025 celebramos nuestra primera edición, un hito histórico
-                  que reunió a más de 500 personas en una noche inolvidable de ritmo y cultura.
+                  {t('festival.origin.p3')}
                 </p>
               </div>
             </div>
@@ -168,10 +166,10 @@ export default function FestivalPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Ediciones
+              {t('festival.editions.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-white">
-              Versiones <span className="text-[var(--cartagena-green)]">Anteriores</span>
+              {t('festival.editions.title1')} <span className="text-[var(--cartagena-green)]">{t('festival.editions.title2')}</span>
             </h2>
           </div>
 
@@ -191,7 +189,7 @@ export default function FestivalPage() {
                 <div className="ml-6">
                   <div className="flex flex-wrap items-center gap-4 mb-4">
                     <h3 className="font-['Titan_One'] text-2xl text-white">
-                      Edición {edition.year}
+                      {t('festival.editions.edition')} {edition.year}
                     </h3>
                     <span
                       className="px-3 py-1 rounded-full text-sm font-bold"
@@ -216,14 +214,14 @@ export default function FestivalPage() {
             {/* Next Edition Teaser */}
             <div className="relative p-8 rounded-2xl border-2 border-dashed border-white/30 text-center">
               <h3 className="font-['Titan_One'] text-2xl text-white mb-2">
-                Edición 2026
+                {t('festival.editions.badge')} 2026
               </h3>
-              <p className="text-white/60 mb-4">¡Próximamente!</p>
+              <p className="text-white/60 mb-4">{t('festival.editions.comingSoon')}</p>
               <Link
                 to="/"
                 className="inline-block px-6 py-3 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--cartagena-yellow)] hover:bg-[var(--cartagena-red)]/90 transition-colors"
               >
-                Únete a la Comunidad
+                {t('festival.editions.cta')}
               </Link>
             </div>
           </div>
@@ -235,13 +233,13 @@ export default function FestivalPage() {
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              Galería
+              {t('festival.gallery.badge')}
             </span>
             <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-[var(--foreground)]">
-              Momentos <span className="text-[var(--cartagena-green)]">Inolvidables</span>
+              {t('festival.gallery.title1')} <span className="text-[var(--cartagena-green)]">{t('festival.gallery.title2')}</span>
             </h2>
             <p className="text-[var(--foreground)]/70 mt-4 max-w-2xl mx-auto">
-              Revive los mejores momentos de nuestras ediciones anteriores
+              {t('festival.gallery.description')}
             </p>
           </div>
 
@@ -271,16 +269,16 @@ export default function FestivalPage() {
       <section className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
         <div className="container-festival text-center">
           <h2 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-6">
-            ¿Quieres ser parte de la <span className="text-[var(--cartagena-red)]">historia</span>?
+            {t('festival.cta.title1')}<span className="text-[var(--cartagena-red)]">{t('festival.cta.title2')}</span>?
           </h2>
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
-            Únete a nuestra comunidad y sé el primero en enterarte de la próxima edición
+            {t('festival.cta.description')}
           </p>
           <Link
             to="/#comunidad"
             className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
           >
-            Únete a la Comunidad
+            {t('festival.cta.button')}
           </Link>
         </div>
       </section>
