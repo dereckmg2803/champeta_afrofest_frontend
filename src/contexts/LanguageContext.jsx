@@ -164,7 +164,7 @@ const translations = {
     },
     about: {
       badge: 'Sobre el Festival',
-      title: '¡La Champeta se Vive!',
+      title: '¡La Champeta se ',
       highlight: 'Vive',
       description:
         'Champeta AfroFest surge como una iniciativa para celebrar la cultura en las fiestas de la independencia, y ha evolucionado para convertirse en un espacio intercultural donde personas de diversas nacionalidades pueden experimentar la riqueza de la champeta, la música, la danza, la gastronomía y las tradiciones caribeñas.',
