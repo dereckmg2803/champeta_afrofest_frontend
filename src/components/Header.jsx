@@ -23,6 +23,7 @@ export const Header = () => {
     { href: '/champeta', label: t('nav.champeta'), key: 'champeta', isAnchor: false },
     { href: '/experiencias', label: t('nav.experiencias'), key: 'experiencias', isAnchor: false },
     { href: '/comunidad', label: t('nav.comunidad'), key: 'comunidad', isAnchor: false },
+    { href: '/agendas', label: t('nav.agenda'), key: 'agenda', isAnchor: false },
   ];
 
   const scrollToSection = (e, href) => {
@@ -110,8 +111,9 @@ export const Header = () => {
             </a>
 
             <a
-              href="#comunidad"
-              onClick={(e) => scrollToSection(e, '#comunidad')}
+              href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+              target="_blank"
+              rel="noopener noreferrer"
               data-testid="header-cta"
               className="px-6 py-2.5 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-sm tracking-wider border-2 border-[var(--foreground)] pico-shadow-sm rounded-lg"
             >
@@ -191,8 +193,9 @@ export const Header = () => {
             @champetaafrofest
           </a>
           <a
-            href="#comunidad"
-            onClick={(e) => scrollToSection(e, '#comunidad')}
+            href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+            target="_blank"
+            rel="noopener noreferrer"
             data-testid="mobile-cta"
             className="mt-4 px-6 py-4 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-center tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl"
           >

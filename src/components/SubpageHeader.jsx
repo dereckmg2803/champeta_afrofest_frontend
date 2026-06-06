@@ -25,6 +25,7 @@ export const SubpageHeader = () => {
     { href: '/champeta', label: t('nav.champeta'), key: 'champeta' },
     { href: '/experiencias', label: t('nav.experiencias'), key: 'experiencias' },
     { href: '/comunidad', label: t('nav.comunidad'), key: 'comunidad' },
+    { href: '/agendas', label: t('nav.agenda'), key: 'agenda' },
   ];
 
   const isActive = (href) => {
@@ -34,9 +35,9 @@ export const SubpageHeader = () => {
   return (
     <header
       data-testid="subpage-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled
-          ? 'glass border-b-2 border-[var(--foreground)]/10'
-          : 'bg-[var(--dark-section)]'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-[var(--dark-section)] border-b border-gray-200 shadow-sm'
+        : 'bg-[var(--dark-section)]'
         }`}
     >
       <div className="container-festival">
@@ -63,17 +64,15 @@ export const SubpageHeader = () => {
                 to={link.href}
                 data-testid={`subpage-nav-${link.key}`}
                 className={`text-sm font-bold uppercase tracking-wider transition-colors relative group ${isActive(link.href)
-                    ? 'text-[var(--cartagena-yellow)]'
-                    : isScrolled
-                      ? 'text-[var(--foreground)] hover:text-[var(--cartagena-yellow)]'
-                      : 'text-white hover:text-[var(--cartagena-yellow)]'
+                  ? 'text-[var(--cartagena-yellow)]'
+                  : 'text-white hover:text-[var(--cartagena-yellow)]'
                   }`}
               >
                 {link.label}
                 <span
                   className={`absolute -bottom-1 left-0 h-0.5 bg-[var(--cartagena-yellow)] transition-[width] duration-300 ${isActive(link.href)
-                      ? 'w-full'
-                      : 'w-0 group-hover:w-full'
+                    ? 'w-full'
+                    : 'w-0 group-hover:w-full'
                     }`}
                 />
               </Link>
@@ -84,7 +83,7 @@ export const SubpageHeader = () => {
           <div className="hidden md:flex items-center gap-4">
 
             {/* Language Selector */}
-            <LanguageSelector isScrolled={isScrolled} />
+            <LanguageSelector isScrolled={false} />
 
             <a
               href="https://www.instagram.com/champetaafrofest/"
@@ -92,23 +91,24 @@ export const SubpageHeader = () => {
               rel="noopener noreferrer"
               data-testid="subpage-header-instagram"
               className={`p-2 rounded-full transition-colors ${isScrolled
-                  ? 'hover:bg-[var(--cartagena-yellow)]/20'
-                  : 'hover:bg-white/20'
+                ? 'hover:bg-[var(--cartagena-yellow)]/20'
+                : 'hover:bg-white/20'
                 }`}
             >
               <Instagram
-                className={`w-5 h-5 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'
-                  }`}
+                className="w-5 h-5 text-white"
               />
             </a>
 
-            <Link
-              to="/#comunidad"
+            <a
+              href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+              target="_blank"
+              rel="noopener noreferrer"
               data-testid="subpage-header-cta"
               className="px-5 py-2 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-sm tracking-wider border-2 border-[var(--foreground)] pico-shadow-sm rounded-lg"
             >
               {t('nav.joinCommunityShort')}
-            </Link>
+            </a>
 
           </div>
 
@@ -117,18 +117,18 @@ export const SubpageHeader = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="subpage-mobile-menu-toggle"
             className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled
-                ? 'hover:bg-[var(--cartagena-yellow)]/20'
-                : 'hover:bg-white/20'
+              ? 'hover:bg-[var(--cartagena-yellow)]/20'
+              : 'hover:bg-white/20'
               }`}
           >
             {isMobileMenuOpen ? (
               <X
-                className={`w-6 h-6 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'
+                className={`w-6 h-6 ${isScrolled ? 'text-[var(--background)]' : 'text-white'
                   }`}
               />
             ) : (
               <Menu
-                className={`w-6 h-6 ${isScrolled ? 'text-[var(--foreground)]' : 'text-white'
+                className={`w-6 h-6 ${isScrolled ? 'text-[var(--background)]' : 'text-white'
                   }`}
               />
             )}
@@ -152,8 +152,8 @@ export const SubpageHeader = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               data-testid={`subpage-mobile-nav-${link.key}`}
               className={`text-xl font-['Titan_One'] uppercase transition-colors ${isActive(link.href)
-                  ? 'text-[var(--cartagena-yellow)]'
-                  : 'text-white hover:text-[var(--cartagena-yellow)]'
+                ? 'text-[var(--cartagena-yellow)]'
+                : 'text-white hover:text-[var(--cartagena-yellow)]'
                 }`}
             >
               {link.label}
@@ -164,10 +164,10 @@ export const SubpageHeader = () => {
 
           {/* Language Selector Mobile */}
           <div className="flex items-center gap-3">
-            <span className="text-lg font-bold">
+            <span className="text-lg font-bold text-white">
               {t('languages.es') === 'Español' ? 'Idioma:' : 'Language:'}
             </span>
-            <LanguageSelector isScrolled={true} isMobile={true} />
+            <LanguageSelector isScrolled={false} isMobile={true} />
           </div>
 
           <a
@@ -181,13 +181,15 @@ export const SubpageHeader = () => {
             @champetaafrofest
           </a>
 
-          <Link
-            to="/#comunidad"
+          <a
+            href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="mt-4 px-6 py-4 bg-[var(--secondary)] text-[var(--foreground)] font-bold uppercase text-center tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl"
           >
             {t('nav.joinCommunity')}
-          </Link>
+          </a>
 
         </div>
       </div>

@@ -134,7 +134,7 @@ export const Hero = () => {
           <a
             href="#entradas"
             onClick={(e) => {
-              window.gtag('event', 'buy_tickets_click', {
+              window.gtag?.('event', 'buy_tickets_click', {
                 section: 'hero'
               });
 
@@ -147,13 +147,13 @@ export const Hero = () => {
           </a>
 
           <a
-            href="#sobre"
-            onClick={(e) => {
-              window.gtag('event', 'know_festival_click', {
+            href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              window.gtag?.('event', 'know_festival_click', {
                 section: 'hero'
               });
-
-              scrollToSection(e, '#sobre');
             }}
             data-testid="hero-cta-about"
             className="px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--cartagena-green)] rounded-xl text-lg hover:bg-[var(--cartagena-green)] transition-all duration-300"

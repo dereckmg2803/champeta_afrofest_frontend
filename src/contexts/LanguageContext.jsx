@@ -9,13 +9,14 @@ const translations = {
       champeta: 'Champeta',
       experiencias: 'Experiencias',
       comunidad: 'Comunidad',
+      agenda: 'Agenda',
       joinCommunity: 'Únete a la Comunidad',
       joinCommunityShort: 'Únete',
     },
 
     hero: {
       buyTickets: 'Comprar Entradas',
-      knowFestival: 'Conoce el Festival',
+      knowFestival: 'Únete a Nosotros',
       scroll: 'Scroll',
     },
     experiencesl: {
@@ -98,7 +99,54 @@ const translations = {
         backstage: 'Acceso backstage'
       },
 
-      note: '* Los precios pueden variar. Consulta términos y condiciones.'
+      note: '* Los precios pueden variar. Consulta términos y condiciones.',
+      event: {
+        badge: 'Entradas',
+        title: 'Próximo',
+        highlight: 'Afrofest',
+        subtitle: '',
+        cardTitle: 'Champeta Afrofest en Melbourne',
+        description1: '¡Ya está aquí el próximo Champeta Afrofest en Melbourne! 🔥🎶 Prepárate para una noche llena de sabor, cultura y pura energía afrocaribeña. 🌴✨',
+        description2: 'Ven a bailar, disfrutar y sentir el ritmo de la champeta como nunca.',
+        earlyBird: '🎟️ Aprovecha Early Birds hasta el 31 de mayo. Tickets disponibles aquí:',
+        collaboration: 'En colaboración con la mejor disco latina en Melbourne: VIBRAS CLUB 😎💥',
+        closing: '',
+        hashtags: '#ChampetaAfroFest #ChampetaEnMelbourne #CulturaAfro #SaborCosteño #NosVemosEnLaPista',
+        location: 'Melbourne',
+        earlyBirdShort: 'Early Birds hasta el 31 de mayo',
+        buy: 'Comprar tickets',
+        agendaText: 'Para ver los próximos eventos en la agenda visita /agendas.',
+        agendaButton: 'Ver agenda'
+      }
+    },
+    agenda: {
+      hero: {
+        badge: 'Agenda',
+        title1: 'Próximos',
+        title2: 'Eventos',
+        description: 'Conoce las próximas fechas de Champeta AfroFest y vive la cultura afrocaribeña en Melbourne.',
+        imageAlt: 'Agenda Champeta AfroFest'
+      },
+      upcoming: {
+        badge: 'Próximas fechas',
+        title1: 'Próximas',
+        title2: 'Fechas'
+      },
+      event: {
+        status: 'Agenda 2026 - 2027',
+        title: 'Champeta Afrofest en Melbourne',
+        description: 'Una noche llena de sabor, cultura y pura energía afrocaribeña junto a Vibras Club.',
+        summary: 'Ven a bailar, disfrutar y sentir el ritmo de la champeta como nunca. Una noche para celebrar nuestra cultura afro, nuestra música y nuestra alegría.',
+        location: 'Melbourne, Australia',
+        earlyBird: 'Early Birds hasta el 31 de mayo',
+        partner: 'Vibras Club',
+        tickets: 'Eventbrite',
+        cta: 'Comprar tickets'
+      },
+      more: {
+        title: 'Más eventos pronto',
+        description: 'Estamos preparando nuevas fechas y experiencias. Vuelve a esta agenda para conocer los próximos encuentros de la comunidad.'
+      }
     },
     communityl: {
       badge: 'Comunidad & Diáspora',
@@ -694,13 +742,14 @@ const translations = {
       champeta: 'Champeta',
       experiencias: 'Experiences',
       comunidad: 'Community',
+      agenda: 'Agenda',
       joinCommunity: 'Join the Community',
       joinCommunityShort: 'Join',
     },
 
     hero: {
       buyTickets: 'Buy Tickets',
-      knowFestival: 'Discover Festival',
+      knowFestival: 'Join Us',
       scroll: 'Scroll',
     },
     experiencesl: {
@@ -783,7 +832,54 @@ const translations = {
         backstage: 'Backstage access'
       },
 
-      note: '* Prices may vary. See terms and conditions.'
+      note: '* Prices may vary. See terms and conditions.',
+      event: {
+        badge: 'Tickets',
+        title: 'Next',
+        highlight: 'Afrofest',
+        subtitle: '',
+        cardTitle: 'Champeta Afrofest in Melbourne',
+        description1: 'The next Champeta Afrofest in Melbourne is here. 🔥🎶 Get ready for a night full of flavor, culture, and pure Afro-Caribbean energy. 🌴✨',
+        description2: 'Come dance, enjoy, and feel the rhythm of champeta like never before.',
+        earlyBird: '🎟️ Take advantage of Early Birds until May 31. Tickets available here:',
+        collaboration: 'In collaboration with the best Latin club in Melbourne: Vibras Club 😎💥🇨🇴💃🏽',
+        closing: 'A night to celebrate our Afro culture, our music, and our joy. Do not miss it.',
+        hashtags: '#ChampetaAfroFest #ChampetaEnMelbourne #CulturaAfro #SaborCosteño #NosVemosEnLaPista',
+        location: 'Melbourne',
+        earlyBirdShort: 'Early Birds until May 31',
+        buy: 'Buy tickets',
+        agendaText: 'To see upcoming events in the agenda, visit /agendas.',
+        agendaButton: 'View agenda'
+      }
+    },
+    agenda: {
+      hero: {
+        badge: 'Agenda',
+        title1: 'Upcoming',
+        title2: 'Events',
+        description: 'Explore the next Champeta AfroFest dates and experience Afro-Caribbean culture in Melbourne.',
+        imageAlt: 'Champeta AfroFest agenda'
+      },
+      upcoming: {
+        badge: 'Upcoming dates',
+        title1: 'Upcoming',
+        title2: 'Dates'
+      },
+      event: {
+        status: '2026 - 2027 Agenda',
+        title: 'Champeta Afrofest in Melbourne',
+        description: 'A night full of flavor, culture, and pure Afro-Caribbean energy with Vibras Club.',
+        summary: 'Come dance, enjoy, and feel the rhythm of champeta like never before. A night to celebrate our Afro culture, our music, and our joy.',
+        location: 'Melbourne, Australia',
+        earlyBird: 'Early Birds until May 31',
+        partner: 'Vibras Club',
+        tickets: 'Eventbrite',
+        cta: 'Buy tickets'
+      },
+      more: {
+        title: 'More events soon',
+        description: 'We are preparing new dates and experiences. Come back to this agenda to discover the next community gatherings.'
+      }
     },
     communityl: {
       badge: 'Community & Diaspora',

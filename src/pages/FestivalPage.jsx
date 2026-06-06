@@ -274,12 +274,14 @@ export default function FestivalPage() {
           <p className="text-[var(--foreground)]/70 mb-8 max-w-2xl mx-auto">
             {t('festival.cta.description')}
           </p>
-          <Link
-            to="/#comunidad"
+          <a
+            href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
           >
             {t('festival.cta.button')}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

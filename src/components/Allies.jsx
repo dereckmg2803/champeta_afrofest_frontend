@@ -96,11 +96,9 @@ export const Allies = () => {
         {/* Contact CTA */}
         <div className="text-center">
           <a
-            href="#comunidad"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#comunidad')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+            target="_blank"
+            rel="noopener noreferrer"
             data-testid="allies-cta"
             className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl hover:bg-[var(--cartagena-green)]/90 transition-colors"
           >

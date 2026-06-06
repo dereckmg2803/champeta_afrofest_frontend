@@ -1,52 +1,10 @@
-import { Check, Star, Crown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { CalendarDays, MapPin, Music, Ticket } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export const Tickets = () => {
   const { t } = useLanguage();
-  const ticketTypes = [
-    {
-      name: t('tickets.types.earlyBird'),
-      price: '$49',
-      color: 'var(--cartagena-green)',
-      icon: Check,
-      features: [
-        t('tickets.features.generalAccess'),
-        t('tickets.features.allStages'),
-        t('tickets.features.eventMap'),
-        t('tickets.features.welcomeKit')
-      ],
-      popular: false
-    },
-    {
-      name: t('tickets.types.general'),
-      price: '$69',
-      color: 'var(--cartagena-yellow)',
-      icon: Star,
-      features: [
-        t('tickets.features.generalAccess'),
-        t('tickets.features.allStages'),
-        t('tickets.features.foodZone'),
-        t('tickets.features.exclusiveMerch'),
-        t('tickets.features.meetGreetRaffle')
-      ],
-      popular: true
-    },
-    {
-      name: t('tickets.types.vip'),
-      price: '$119',
-      color: 'var(--cartagena-red)',
-      icon: Crown,
-      features: [
-        t('tickets.features.vipAccess'),
-        t('tickets.features.priorityZone'),
-        t('tickets.features.premiumOpenBar'),
-        t('tickets.features.guaranteedMeet'),
-        t('tickets.features.vipMerch'),
-        t('tickets.features.backstage')
-      ],
-      popular: false
-    }
-  ];
+  const eventbriteUrl = 'https://www.eventbrite.com.au/e/champeta-afro-fest-tickets-1990311889439?aff=oddtdtcreator';
 
   return (
     <section
@@ -67,86 +25,88 @@ export const Tickets = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4 border-2 border-[var(--foreground)]">
-            {t('tickets.badge')}
+            {t('tickets.event.badge')}
           </span>
           <h2
             data-testid="tickets-title"
             className="font-['Titan_One'] text-4xl md:text-5xl lg:text-6xl uppercase text-[var(--foreground)] mb-4"
           >
-            {t('tickets.title')}<span className="text-[var(--cartagena-green)]">{t('tickets.highlight')}</span>
+            {t('tickets.event.title')} <span className="text-[var(--cartagena-green)]">{t('tickets.event.highlight')}</span>
           </h2>
-          <p className="text-[var(--foreground)]/70 text-base md:text-lg">
-            {t('tickets.subtitle')}
-          </p>
+
         </div>
 
-        {/* Tickets Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {ticketTypes.map((ticket, index) => (
-            <div
-              key={ticket.name}
-              data-testid={`ticket-card-${index}`}
-              className={`relative overflow-hidden border-2 border-[var(--foreground)] rounded-2xl bg-white animate-fade-in-up ${ticket.popular ? 'pico-shadow md:scale-105 md:-translate-y-2' : 'pico-shadow-sm'
-                }`}
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              {/* Popular badge */}
-              {ticket.popular && (
-                <div className="absolute -top-1 -right-1 px-4 py-1 bg-[var(--foreground)] text-white text-xs font-bold uppercase rounded-bl-xl">
-                  {t('tickets.popular')}
+        {/* Featured event card */}
+        <div className="max-w-4xl mx-auto">
+          <div
+            data-testid="ticket-event-card"
+            className="relative overflow-hidden border-2 border-[var(--foreground)] rounded-3xl bg-white pico-shadow animate-fade-in-up"
+          >
+            <div className="absolute top-0 left-0 right-0 h-3 bg-[var(--cartagena-green)]" />
+            <div className="absolute top-3 left-0 right-0 h-2 bg-[var(--cartagena-yellow)]" />
+            <div className="absolute top-5 left-0 right-0 h-1 bg-[var(--cartagena-red)]" />
+
+            <div className="p-6 md:p-10">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+
+
+                <div className="flex-1">
+                  <h3 className="font-['Titan_One'] text-3xl md:text-4xl uppercase text-[var(--foreground)] mb-4">
+                    {t('tickets.event.cardTitle')}
+                  </h3>
+
+                  <div className="space-y-4 text-[var(--foreground)]/80 text-base md:text-lg">
+                    <p>{t('tickets.event.description1')}</p>
+                    <p>{t('tickets.event.description2')}</p>
+
+                    <p>{t('tickets.event.collaboration')}</p>
+                    <p className="font-bold text-[var(--foreground)]">{t('tickets.event.earlyBird')}</p>
+                    <p className="text-sm font-bold text-[var(--cartagena-red)]">{t('tickets.event.hashtags')}</p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-3 gap-3 mt-8">
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--muted)] border border-[var(--foreground)]/10">
+                      <MapPin className="w-5 h-5 text-[var(--cartagena-red)]" />
+                      <span className="text-sm font-bold text-[var(--foreground)]">{t('tickets.event.location')}</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--muted)] border border-[var(--foreground)]/10">
+                      <CalendarDays className="w-5 h-5 text-[var(--cartagena-green)]" />
+                      <span className="text-sm font-bold text-[var(--foreground)]">{t('tickets.event.earlyBirdShort')}</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--muted)] border border-[var(--foreground)]/10">
+                      <Music className="w-5 h-5 text-[var(--caribbean-deep)]" />
+                      <span className="text-sm font-bold text-[var(--foreground)]">Vibras Club</span>
+                    </div>
+                  </div>
+
+                  <a
+                    href={eventbriteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="ticket-eventbrite-link"
+                    className="flex w-fit mx-auto mt-8 px-8 py-4 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider border-2 border-[var(--foreground)] rounded-xl pico-shadow-sm hover:bg-[var(--cartagena-green)] transition-colors"
+                  >
+                    {t('tickets.event.buy')}
+                  </a>
                 </div>
-              )}
-
-              {/* Header */}
-              <div
-                className="p-6 text-center"
-                style={{ backgroundColor: ticket.color }}
-              >
-                <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-[var(--foreground)] rounded-full">
-                  <ticket.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-['Titan_One'] text-xl uppercase text-[var(--foreground)]">
-                  {ticket.name}
-                </h3>
-                <p className="font-['Titan_One'] text-4xl text-[var(--foreground)] mt-2">
-                  {ticket.price}
-                </p>
-              </div>
-
-              {/* Features */}
-              <div className="p-6">
-                <ul className="space-y-3">
-                  {ticket.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-3">
-                      <Check
-                        className="w-5 h-5 flex-shrink-0 mt-0.5"
-                        style={{ color: ticket.color }}
-                      />
-                      <span className="text-sm text-[var(--foreground)]/80">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <button
-                  data-testid={`ticket-buy-${index}`}
-                  className="w-full mt-6 px-6 py-4 font-bold uppercase tracking-wider border-2 border-[var(--foreground)] rounded-xl transition-colors"
-                  style={{
-                    backgroundColor: ticket.color,
-                    color: 'var(--foreground)'
-                  }}
-                >
-                  {t('tickets.buy')}
-                </button>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Note */}
-        <p className="text-center mt-8 text-sm text-[var(--foreground)]/60">
-          {t('tickets.note')}
-        </p>
+        {/* Agenda CTA */}
+        <div className="text-center mt-10">
+          <p className="text-[var(--foreground)]/70 mb-4">
+            {t('tickets.event.agendaText')}
+          </p>
+          <Link
+            to="/agendas"
+            data-testid="tickets-agenda-link"
+            className="inline-flex px-6 py-3 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase tracking-wider border-2 border-[var(--foreground)] rounded-xl pico-shadow-sm hover:bg-[var(--cartagena-green)] transition-colors"
+          >
+            {t('tickets.event.agendaButton')}
+          </Link>
+        </div>
       </div>
     </section>
   );

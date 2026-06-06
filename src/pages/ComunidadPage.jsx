@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Users, Heart, Handshake, Star, Award } from 'lucide-react';
+import { Users, Heart, Handshake, Star } from 'lucide-react';
 import { DancingCouple, Sparkle } from '../components/CartagenaIllustrations';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -354,12 +353,14 @@ export default function ComunidadPage() {
 
           <div className="text-center mt-12">
             <p className="text-[var(--foreground)]/60 mb-4">{t('community.contact.question')}</p>
-            <Link
-              to="/#comunidad"
+            <a
+              href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-6 py-3 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] hover:bg-[var(--cartagena-green)]/90 transition-colors"
             >
               {t('community.contact.button')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

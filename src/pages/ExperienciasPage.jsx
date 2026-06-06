@@ -308,12 +308,14 @@ export default function ExperienciasPage() {
             >
               {t('experiences.cta.tickets')}
             </Link>
-            <Link
-              to="/#comunidad"
+            <a
+              href="https://forms.gle/VsboZ2tgn5LjgL9c6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--foreground)] pico-shadow hover:bg-[var(--cartagena-green)]/90 transition-colors"
             >
               {t('experiences.cta.community')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

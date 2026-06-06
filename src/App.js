@@ -8,7 +8,6 @@ import { Lineup } from "./components/Lineup";
 import { Experiences } from "./components/Experiences";
 import { Culture } from "./components/Culture";
 import { Tickets } from "./components/Tickets";
-import { Community } from "./components/Community";
 import { Allies } from "./components/Allies";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -18,6 +17,7 @@ import FestivalPage from "./pages/FestivalPage";
 import ChampetaPage from "./pages/ChampetaPage";
 import ComunidadPage from "./pages/ComunidadPage";
 import ExperienciasPage from "./pages/ExperienciasPage";
+import AgendaPage from "./pages/AgendaPage";
 
 // Landing Page Component
 const LandingPage = () => {
@@ -49,9 +49,6 @@ const LandingPage = () => {
         {/* Tickets */}
         <Tickets />
 
-        {/* Community & Diaspora */}
-        <Community />
-
         {/* Allies */}
         <Allies />
       </main>
@@ -79,6 +76,7 @@ function App() {
               <Route path="/champeta" element={<ChampetaPage />} />
               <Route path="/comunidad" element={<ComunidadPage />} />
               <Route path="/experiencias" element={<ExperienciasPage />} />
+              <Route path="/agendas" element={<AgendaPage />} />
             </Route>
           </Routes>
 
