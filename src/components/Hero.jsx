@@ -133,15 +133,28 @@ export const Hero = () => {
         >
           <a
             href="#entradas"
-            onClick={(e) => scrollToSection(e, '#entradas')}
+            onClick={(e) => {
+              window.gtag('event', 'buy_tickets_click', {
+                section: 'hero'
+              });
+
+              scrollToSection(e, '#entradas');
+            }}
             data-testid="hero-cta-tickets"
             className="px-8 py-4 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase tracking-wider border-2 border-[var(--foreground)] pico-shadow rounded-xl text-lg hover:bg-[var(--cartagena-yellow)]/90 transition-colors"
           >
             {t('hero.buyTickets')}
           </a>
+
           <a
             href="#sobre"
-            onClick={(e) => scrollToSection(e, '#sobre')}
+            onClick={(e) => {
+              window.gtag('event', 'know_festival_click', {
+                section: 'hero'
+              });
+
+              scrollToSection(e, '#sobre');
+            }}
             data-testid="hero-cta-about"
             className="px-8 py-4 bg-[var(--cartagena-green)] text-white font-bold uppercase tracking-wider border-2 border-[var(--cartagena-green)] rounded-xl text-lg hover:bg-[var(--cartagena-green)] transition-all duration-300"
           >

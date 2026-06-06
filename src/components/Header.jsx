@@ -37,7 +37,9 @@ export const Header = () => {
   return (
     <header
       data-testid="header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'glass border-b-2 border-[var(--foreground)]/10' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-white border-b border-gray-200 shadow-sm'
+          : 'bg-transparent'
         }`}
     >
       <div className="container-festival">

@@ -13,12 +13,28 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
 
-    <!-- Google Font (opcional, puedes quitarla si no la usas) -->
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
 
     <title>Champeta AfroFest</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S334ED28ZB"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-S334ED28ZB');
+    </script>
+
 </head>
 
 <body>
@@ -26,10 +42,6 @@
 
     <div id="root"></div>
 
-    <!-- 
-        Esta es la plantilla base.
-        React inyectará automáticamente los scripts aquí al hacer build.
-        -->
 </body>
 
 </html>
