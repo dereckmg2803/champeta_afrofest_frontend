@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Calendar, Users, Star, Trophy } from 'lucide-react';
 import { VinylDisc, Sparkle, DancingCouple } from '../components/CartagenaIllustrations';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -30,22 +29,7 @@ const galleryImages = [
   }
 ];
 
-const editions = [
-  {
-    year: '2025 Dance Class',
-    date: '15 de Noviembre',
-    location: 'Melbourne, Australia',
-    highlights: ['Más de 500 asistentes', '8 artistas en vivo', 'Talleres de baile'],
-    color: 'var(--cartagena-green)'
-  },
-  {
-    year: '2025 Nighy Party',
-    date: '29 de Agosto',
-    location: 'Melbourne, Australia',
-    highlights: ['Primera edición histórica', 'Night Party', 'Tropical Melbourne', 'Comunidad vibrante'],
-    color: 'var(--cartagena-green)'
-  }
-];
+
 
 
 
@@ -123,7 +107,7 @@ export default function FestivalPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20 md:py-32">
+      <section className="py-20 md:py-5">
         <div className="container-festival">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -161,75 +145,8 @@ export default function FestivalPage() {
         </div>
       </section>
 
-      {/* Editions Timeline */}
-      <section className="py-20 md:py-32" style={{ backgroundColor: 'var(--dark-section)' }}>
-        <div className="container-festival">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-[var(--cartagena-yellow)] text-[var(--foreground)] font-bold uppercase text-sm tracking-widest rounded-lg mb-4">
-              {t('festival.editions.badge')}
-            </span>
-            <h2 className="font-['Titan_One'] text-3xl md:text-5xl uppercase text-white">
-              {t('festival.editions.title1')} <span className="text-[var(--cartagena-green)]">{t('festival.editions.title2')}</span>
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {editions.map((edition, index) => (
-              <div
-                key={index}
-                className="relative p-8 rounded-2xl bg-white/10 backdrop-blur-sm border-2 mb-8"
-                style={{ borderColor: edition.color }}
-              >
-                <div
-                  className="absolute -left-4 top-8 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
-                  style={{ backgroundColor: edition.color }}
-                >
-                  {index + 1}
-                </div>
-                <div className="ml-6">
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
-                    <h3 className="font-['Titan_One'] text-2xl text-white">
-                      {t('festival.editions.edition')} {edition.year}
-                    </h3>
-                    <span
-                      className="px-3 py-1 rounded-full text-sm font-bold"
-                      style={{ backgroundColor: edition.color, color: 'white' }}
-                    >
-                      {edition.date}
-                    </span>
-                  </div>
-                  <p className="text-white/60 mb-4">{edition.location}</p>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {edition.highlights.map((highlight, hIndex) => (
-                      <li key={hIndex} className="flex items-center gap-2 text-white/80 text-sm">
-                        <Sparkle size={12} color={edition.color} />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-
-            {/* Next Edition Teaser */}
-            <div className="relative p-8 rounded-2xl border-2 border-dashed border-white/30 text-center">
-              <h3 className="font-['Titan_One'] text-2xl text-white mb-2">
-                {t('festival.editions.badge')} 2026
-              </h3>
-              <p className="text-white/60 mb-4">{t('festival.editions.comingSoon')}</p>
-              <Link
-                to="/"
-                className="inline-block px-6 py-3 bg-[var(--cartagena-red)] text-white font-bold uppercase tracking-wider rounded-xl border-2 border-[var(--cartagena-yellow)] hover:bg-[var(--cartagena-red)]/90 transition-colors"
-              >
-                {t('festival.editions.cta')}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Photo Gallery */}
-      <section className="py-20 md:py-32">
+      <section className="py-20 md:py-5">
         <div className="container-festival">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[var(--cartagena-red)] text-white font-bold uppercase text-sm tracking-widest rounded-lg mb-4">

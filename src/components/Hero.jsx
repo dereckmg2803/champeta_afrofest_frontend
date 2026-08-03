@@ -1,10 +1,11 @@
 import { ChevronDown } from 'lucide-react';
 import { VinylDisc, Sparkle, MusicNote, WavePattern, DancingCouple } from './CartagenaIllustrations';
 import { useLanguage } from '../contexts/LanguageContext';
+import { formatEventDate, getNextEvent, localizedText } from '../lib/eventHelpers';
 
 export const Hero = () => {
-  const { t } = useLanguage();
-
+  const { t, language } = useLanguage();
+  const nextEvent = getNextEvent();
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
@@ -104,28 +105,18 @@ export const Hero = () => {
           Desde el Caribe para el mundo
         </p>*/}
 
-        {/* Date Badge
-        <div
-          data-testid="hero-date"
-          className="inline-block mb-6 animate-fade-in-up"
-          style={{ animationDelay: '0.3s' }}
-        >
-          <span className="px-6 py-3 bg-[var(--cartagena-red)] text-white font-['Titan_One'] text-xl md:text-2xl uppercase tracking-wider border-2 border-[var(--cartagena-yellow)] rounded-xl shadow-lg">
-            Next Version in 2026
-          </span>
-        </div>
- */}
-        {/* Location 
-        <p
-          data-testid="hero-location"
-          className="text-white/80 text-base md:text-lg mb-8 animate-fade-in-up flex items-center justify-center gap-2"
-          style={{ animationDelay: '0.4s' }}
-        >
-          <span className="inline-block w-3 h-3 bg-[var(--cartagena-green)] rounded-full"></span>
-          Cartagena de Indias, Colombia
-          <span className="inline-block w-3 h-3 bg-[var(--cartagena-red)] rounded-full"></span>
-        </p>
-*/}
+        {nextEvent && (
+          <div
+            data-testid="hero-date"
+            className="inline-block mb-6 animate-fade-in-up"
+            style={{ animationDelay: '0.3s' }}
+          >
+            <span className="px-6 py-3 bg-[var(--cartagena-red)] text-white font-['Titan_One'] text-lg md:text-xl uppercase tracking-wider border-2 border-[var(--cartagena-yellow)] rounded-xl shadow-lg">
+              {formatEventDate(nextEvent.dateISO, language)} · {localizedText(nextEvent.title, language)}
+            </span>
+          </div>
+        )}
+
         {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up -translate-y-6 sm:translate-y-0"
