@@ -111,9 +111,7 @@ export const Hero = () => {
             className="inline-block mb-6 animate-fade-in-up"
             style={{ animationDelay: '0.3s' }}
           >
-            <span className="px-6 py-3 bg-[var(--cartagena-red)] text-white font-['Titan_One'] text-lg md:text-xl uppercase tracking-wider border-2 border-[var(--cartagena-yellow)] rounded-xl shadow-lg">
-              {formatEventDate(nextEvent.dateISO, language)} · {localizedText(nextEvent.title, language)}
-            </span>
+
           </div>
         )}
 
