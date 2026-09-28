@@ -7,7 +7,11 @@ const allies = [
   { name: 'HMS Music & Sound', logo: '/allies/hms-music.png' },
   { name: 'Lemar Ilustre', logo: '/allies/lemar-ilustre.png' },
   { name: 'Mincultura', logo: '/allies/mincultura.png' },
-  { name: 'SBS Spanish', logo: '/allies/sbs-spanish.png' }
+  { name: 'SBS Spanish', logo: '/allies/sbs-spanish.png' },
+  {
+    name: 'St Kilda Town Hall',
+    logo: 'https://www.stkildatownhall.com.au/media/nurjun0x/copp-reversed.svg'
+  }
 ];
 
 export default function ComunidadPage() {
@@ -316,7 +320,7 @@ export default function ComunidadPage() {
           </div>
 
           <div className="text-center">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6 max-w-5xl mx-auto mb-12">
               {allies.map((ally, index) => (
                 <div
                   key={ally.name}

@@ -161,7 +161,11 @@ export const EVENTS = [
     venue: 'Pavillion',
     city: 'Melbourne',
     country: 'Australia',
-    ticketUrl: null,
+    description: {
+      es: 'Champeta Afrofest Melbourne 2026 es el primer festival afrocolombiano en Australia, celebrado el 7 de noviembre en St Kilda Town Hall. Una jornada de música, champeta, danza, gastronomía y cultura que conecta el Caribe colombiano con Melbourne.',
+      en: 'Champeta Afrofest Melbourne 2026 is the first Afro-Colombian festival in Australia, taking place on November 7 at St Kilda Town Hall. A celebration of music, champeta, dance, food and culture connecting the Colombian Caribbean with Melbourne.',
+    },
+    ticketUrl: 'https://events.humanitix.com/champeta-afrofest-2026',
     earlyBirdUntilISO: null,
     color: 'var(--caribbean-deep)',
   },
