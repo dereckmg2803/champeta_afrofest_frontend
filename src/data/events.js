@@ -158,7 +158,7 @@ export const EVENTS = [
       es: 'Champeta Afrofest Cartagena Independence Celebration',
       en: 'Champeta Afrofest Cartagena Independence Celebration',
     },
-    venue: 'Pavillion',
+    venue: 'St Kilda Town Hall',
     city: 'Melbourne',
     country: 'Australia',
     description: {
